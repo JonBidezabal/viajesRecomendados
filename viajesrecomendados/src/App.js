@@ -7,7 +7,7 @@ import NewPassword from "./pages/NewPassword";
 import Categories from "./pages/Categories";
 import PostPlace from "./pages/PostPlace";
 import MostVoted from "./pages/MostVoted";
-import PlaceDetail from "./pages/PlaceDetail";
+import PlaceDetail from "./pages/PlaceDetailPage";
 import PlaceByCategory from "./pages/PlaceByCategory";
 import DeletePlace from "./pages/DeletePlace";
 import PlaceByCity from "./pages/PlaceByCity";
