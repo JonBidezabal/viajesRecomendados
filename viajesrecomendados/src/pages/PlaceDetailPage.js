@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { usePlaceDetail } from "../hooks/apiFetch";
+import { usePlaceDetail } from "../hooks/index";
 
 const PlaceDetail = () => {
   const { id } = useParams();
