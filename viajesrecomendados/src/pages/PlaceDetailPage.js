@@ -2,15 +2,17 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { usePlaceDetail } from "../hooks/index";
 
-const PlaceDetailPage = () => {
+const PlaceDetail = () => {
   const { id } = useParams();
-  const placeDetail = usePlaceDetail(id);
+  const response = usePlaceDetail(id);
 
-  if (!placeDetail) {
+  if (!response) {
     return <div>Cargando...</div>;
   }
-
-  const { generalInfo, comments, categories } = placeDetail.data;
+  if (response.status !== "ok") {
+    return <div>No se encontró ninguna experiencia</div>;
+  }
+  const { generalInfo, comments, categories, photos } = response.data;
 
   const { title, shortDescription, city, country } = generalInfo[0];
 
@@ -35,8 +37,16 @@ const PlaceDetailPage = () => {
           <li key={category.name}>{category.name}</li>
         ))}
       </ul>
+      <h3>Fotos</h3>
+      <ul>
+  {photos.map((photo, index) => (
+    <li key={index}>
+      <img src={`${process.env.REACT_APP_BACKEND}/${photo.photo}`} alt={title} />
+    </li>
+  ))}
+</ul>
     </div>
   );
 };
 
-export default PlaceDetailPage;
+export default PlaceDetail;
