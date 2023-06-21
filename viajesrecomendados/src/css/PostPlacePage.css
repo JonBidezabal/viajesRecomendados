@@ -1,0 +1,11 @@
+.post-place-page {
+  flex-grow: 1;
+}
+
+.post-place-page .post-place-page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 90%;
+  margin: 0 auto;
+}
