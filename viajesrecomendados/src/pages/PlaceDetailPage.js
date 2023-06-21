@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { usePlaceDetail } from "../hooks/index";
 
-const PlaceDetail = () => {
+const PlaceDetailPage = () => {
   const { id } = useParams();
   const placeDetail = usePlaceDetail(id);
 
@@ -39,4 +39,4 @@ const PlaceDetail = () => {
   );
 };
 
-export default PlaceDetail;
+export default PlaceDetailPage;
