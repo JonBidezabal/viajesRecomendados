@@ -1,0 +1,46 @@
+.navheadercountries.show .navcountries {
+  display: block;
+  list-style: none;
+}
+.navheadercountries.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.navheadercountries.hide .navcountries {
+  display: none;
+}
+
+.navheadercities.show .navcities {
+  display: block;
+  list-style: none;
+}
+.navheadercities.show {
+  display: flex;
+  flex-direction: column;
+}
+.navheadercities.hide .navcities {
+  display: none;
+}
+.auth {
+  list-style: none;
+}
+
+header {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header h2 {
+  color: lightslategray;
+  font-size: 20px;
+}
+header h1 {
+  font-size: 30px;
+}
+header nav .navheader {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
