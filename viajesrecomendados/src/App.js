@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import NewPassword from "./pages/NewPassword";
+import ChangePwd from "./pages/ChangePwdPage";
 import Categories from "./pages/Categories";
 import PostPlacePage from "./pages/PostPlacePage";
 import MostVotedPage from "./pages/MostVotedPage";
@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/users/newpassword" element={<NewPassword />} />
+        <Route path="/users/changepassword" element={<ChangePwd />} />
         <Route path="/places/categories" element={<Categories />} />
         <Route path="/places/newplace" element={<PostPlacePage />} />
         <Route path="/places/mostvoted" element={<MostVotedPage />} />
