@@ -1,5 +1,4 @@
 const PostCard = ({ post }) => {
-  console.log(post);
   return (
     <>
       {/* <img src="%PUBLIC_URL%/api-logo.png" alt={`Foto de ${post.title}`} /> */}
