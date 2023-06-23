@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/InputPostPlace.css"
+import "../../css/InputPostPlace.css"
 
 const InputPostPlace = ({ label, value, placeholder, maxlength, required }) => {
   const [formState, setFormState] = useState({ title: "", city: "" })

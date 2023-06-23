@@ -8,13 +8,13 @@ import Categories from "./pages/Categories";
 import PostPlacePage from "./pages/PostPlacePage";
 import MostVotedPage from "./pages/MostVotedPage";
 import PlaceDetailPage from "./pages/PlaceDetailPage";
-import PlaceByCategory from "./pages/PlaceByCategory";
 import DeletePlace from "./pages/DeletePlace";
 import PlaceByCity from "./pages/PlaceByCityPage";
 import PlaceByCountry from "./pages/PlaceByCountryPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
+import PlaceByCategoryPage from "./pages/PlaceByCategoryPage";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Route path="/places/newplace" element={<PostPlacePage />} />
         <Route path="/places/mostvoted" element={<MostVotedPage />} />
         <Route path="/places/:id" element={<PlaceDetailPage />} />
-        <Route path="/places/category/:id" element={<PlaceByCategory />} />
+        <Route path="/places/category/:id" element={<PlaceByCategoryPage />} />
         <Route path="/places/city/:city" element={<PlaceByCity />} />
         <Route path="/places/country/:country" element={<PlaceByCountry />} />
         <Route path="places/delete/:id" element={<DeletePlace />} />
