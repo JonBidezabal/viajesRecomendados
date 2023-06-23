@@ -6,7 +6,7 @@ const MostVotedPage = () => {
   return (
     <main>
       <h2>Lugares con las mejores reseñas</h2>
-      {info ? <PostsList posts={info.data} /> :
+      {info ? <PostsList posts={info} /> :
         <div> Cargando...</div>
       }
     </main>
