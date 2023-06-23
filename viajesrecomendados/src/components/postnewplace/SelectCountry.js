@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../css/SelectCountry.css"
+import "../../css/SelectCountry.css"
 
 const SelectCountry = () => {
   const [country, setCountry] = useState("")

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/TextAreaPostPlace.css"
+import "../../css/TextAreaPostPlace.css"
 
 const InputPostPlace = ({ label, value, placeholder, maxlength, required, rows, cols }) => {
   const [formState, setFormState] = useState({ sDescription: "", lDescription: "" })

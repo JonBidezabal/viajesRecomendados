@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Select from "react-select"
-import "../css/SelectCategories.css"
+import "../../css/SelectCategories.css"
 
 const SelectCategories = () => {
 

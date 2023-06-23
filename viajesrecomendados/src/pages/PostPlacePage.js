@@ -1,8 +1,9 @@
 import "../css/PostPlacePage.css";
-import SelectCategories from "../components/SelectCategories";
-import SelectCountry from "../components/SelectCountry";
-import InputPostPlace from "../components/InputPostPlace";
-import TextAreaPostPlace from "../components/TextAreaPostPlace"
+import InputPostPlace from "../components/postnewplace/InputPostPlace";
+import SelectCategories from "../components/postnewplace/SelectCategories";
+import SelectCountry from "../components/postnewplace/SelectCountry";
+import TextAreaPostPlace from "../components/postnewplace/TextAreaPostPlace";
+
 
 
 const PostPlacePage = () => {
