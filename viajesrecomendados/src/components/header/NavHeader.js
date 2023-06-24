@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { usePlaces } from "../../hooks";
 import { useState } from "react";
 import "./style.css";
@@ -21,9 +20,7 @@ const NavHeader = () => {
         <ul className="navcountries">
           {data?.map((place) => (
             <li key={place.place_id}>
-              <Link to={`/places/country/${place.country}`}>
-                {place.country}
-              </Link>
+              <a href={`/places/country/${place.country}`}>{place.country}</a>
             </li>
           ))}
         </ul>
@@ -33,7 +30,7 @@ const NavHeader = () => {
         <ul className="navcities">
           {data?.map((place) => (
             <li key={place.place_id}>
-              <Link to={`/places/city/${place.city}`}> {place.city}</Link>
+              <a href={`/places/city/${place.city}`}> {place.city}</a>
             </li>
           ))}
         </ul>
