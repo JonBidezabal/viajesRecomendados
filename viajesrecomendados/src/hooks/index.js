@@ -9,10 +9,19 @@ const useByCity = (city) =>
 const useByCountry = (country) =>
   useFetch(`${process.env.REACT_APP_BACKEND}/places/country/${country}`);
 
-const useMostVoted = () => useFetch(`${process.env.REACT_APP_BACKEND}/places/listvotes`);
+const useMostVoted = () =>
+  useFetch(`${process.env.REACT_APP_BACKEND}/places/listvotes`);
 
-const useByCategory = (id) => useFetch(`${process.env.REACT_APP_BACKEND}/places/category/${id}`);
+const useByCategory = (id) =>
+  useFetch(`${process.env.REACT_APP_BACKEND}/places/category/${id}`);
 
 const usePlaces = () => useFetch(`${process.env.REACT_APP_BACKEND}/`);
 
-export { usePlaceDetail, useByCity, useByCountry, useMostVoted, usePlaces, useByCategory };
+export {
+  usePlaceDetail,
+  useByCity,
+  useByCountry,
+  useMostVoted,
+  usePlaces,
+  useByCategory,
+};
