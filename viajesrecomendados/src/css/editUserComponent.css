@@ -1,0 +1,90 @@
+.eu-component-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+
+
+  .eu-component-h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color:#3d3d3d;
+    text-align: center;
+    margin-bottom: 20px;
+
+  }
+  .container-h2{
+    width: 100%;
+
+  }
+
+  /* input file upload */
+
+  .input-file-container {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .input-file-container:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .input-file-container span {
+    display: block;
+    text-align: center;
+    color: #666666;
+  }
+  
+  .input-file-container input[type="file"] {
+    display: none;
+  }
+
+/* container inputs text*/
+
+  .eu-component-input-container{
+    display: flex;
+    flex-direction: column;
+
+    
+  }
+
+  .eu-input-text{
+    margin-bottom: 10px;
+    border-style: none;
+    text-align: center;
+    line-height: 2.5;
+ }
+
+
+  /* update button */
+  .update-button {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .update-button:hover {
+    background-color: #45a049;
+  }
+  
+  @media (min-width: 768px) {
+    .eu-component-container {
+      max-width: 768px;
+      margin: 20px auto;
+    }
+  }
