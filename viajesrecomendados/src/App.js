@@ -13,8 +13,9 @@ import PlaceByCity from "./pages/PlaceByCityPage";
 import PlaceByCountry from "./pages/PlaceByCountryPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Header from "./components/header/Header";
-import Footer from "./components/Footer";
+
 import PlaceByCategoryPage from "./pages/PlaceByCategoryPage";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (

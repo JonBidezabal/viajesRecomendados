@@ -1,0 +1,91 @@
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.mr-1 {
+  margin-right: 0.3125rem;
+}
+
+.am-footer__love .am-font-awesome {
+  transition: all 0.22s ease-in-out;
+}
+.am-font-awesome {
+  display: inline-block;
+  line-height: 1;
+  height: 2em;
+}
+.am-font-awesome svg {
+  width: 2em;
+  fill: currentColor;
+}
+svg {
+  display: initial;
+}
+
+img,
+object,
+svg,
+video {
+  vertical-align: middle;
+}
+
+svg:not(:root) {
+  overflow-clip-margin: content-box;
+  overflow: hidden;
+}
+.mx-1 {
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+}
+.am-footer__coffee .am-font-awesome {
+  transition: all 0.22s ease-in-out;
+}
+
+.am-font-awesome {
+  display: inline-block;
+  line-height: 1;
+  height: 2em;
+}
+.am-footer__code:hover .am-font-awesome,
+.am-footer__coffee:hover .am-font-awesome {
+  color: #ffb405;
+
+  transform: scale(1.35);
+}
+
+.am-footer__love:hover .am-font-awesome {
+  color: #ff6460;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: pulse;
+}
+.am-footer__love .am-font-awesome {
+  transition: all 0.22s ease-in-out;
+}
+
+.am-font-awesome {
+  display: inline-block;
+  line-height: 1;
+  height: 2em;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.35, 1.35, 1.35);
+    transform: scale3d(1.35, 1.35, 1.35);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
