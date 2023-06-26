@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import SignUp from "./pages/SignUp";
+import SignUpPage from "./pages/SignUpPage";
 import EditProfile from "./pages/EditProfilePage";
 import Categories from "./pages/Categories";
 import PostPlacePage from "./pages/PostPlacePage";
@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/users/editprofile" element={<EditProfile />} />
         <Route path="/places/categories" element={<Categories />} />
         <Route path="/places/newplace" element={<PostPlacePage />} />
