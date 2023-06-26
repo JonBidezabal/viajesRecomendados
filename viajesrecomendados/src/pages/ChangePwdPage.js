@@ -1,45 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { newPwd } from "../services";
 
 const ChangePwd = () => {
-
+  const navigate = useNavigate();
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-//   const {password, token} = userContext()
-// if(oldPassword){
-//   if(password !== oldPassword){
-//     return("Error, la contraseña no es correcta")
-//   }
-// }
-  const navigate = useNavigate();
+  //   const {password, token} = userContext()
+  // if(oldPassword){
+  //   if(password !== oldPassword){
+  //     return("Error, la contraseña no es correcta")
+  //   }
+  // }
 
-
-  const newPwd = async ({ oldPwd, newPwd, token }) => {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/newpassword`, {
-      method: "PATCH",
-      body: JSON.stringify({ oldPwd, newPwd }),
-      headers: {
-        authorization: token,
-        "Content-Type": "application/json",
-      },
-    });
-  
-    const json = await response.json();
-  
-    if (!response.ok) {
-      throw new Error(json.message);
-    }
-  
-    return json.data;
-  };
-  
   const handleButton = (e) => {
     e.preventDefault();
     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInJvbGUiOiJub3JtYWwiLCJuYW1lIjoiTWFyaWEiLCJhdmF0YXIiOm51bGwsImlhdCI6MTY4NzQ1OTQ2MiwiZXhwIjoxNjg3NDYzMDYyfQ.N_RsZuHMunl4UQHSWpfdhiKk8RXGnj6od0aTVDlBGqw";
     newPwd({ oldPwd: oldPassword, newPwd: newPassword, token: token });
-    navigate("/SignUp");
+    navigate("/signup");
   };
-  
+
   return (
     <div>
       <div>

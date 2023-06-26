@@ -1,24 +1,8 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { logInUserService } from "../services";
 
-const logInUserService = async ({ email, password }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/login`, {
-    method: "POST",
-    body: JSON.stringify({ email, password }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-
-  return json.token;
-};
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -42,9 +26,9 @@ const LoginPage = () => {
 
   return (
     <section>
-      <h1>Login</h1>
+      <h2>Iniciar sesión</h2>
       <form onSubmit={handleForm}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Correo electrónico</label>
         <input
           type="email"
           name="email"
@@ -54,7 +38,7 @@ const LoginPage = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="pass">Password</label>
+        <label htmlFor="pass">Contraseña</label>
         <input
           type="password"
           name="pass"
@@ -64,8 +48,8 @@ const LoginPage = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button>Login</button>
-        {error ? <p>{error}</p> : null}
+        <button>Iniciar Sesión</button>
+        {error && <p>{error}</p>}
       </form>
     </section>
   );
