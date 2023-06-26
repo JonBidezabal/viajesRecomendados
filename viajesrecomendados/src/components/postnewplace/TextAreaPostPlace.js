@@ -1,14 +1,6 @@
-import { useState } from "react";
 import "../../css/TextAreaPostPlace.css"
 
-const InputPostPlace = ({ label, value, placeholder, maxlength, required, rows, cols }) => {
-  const [formState, setFormState] = useState({ sDescription: "", lDescription: "" })
-
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target
-    setFormState({ ...formState, [name]: value })
-  }
+const InputPostPlace = ({ onChange, formState, label, value, placeholder, maxlength, required, rows, cols }) => {
 
   return (
     <>
@@ -17,7 +9,7 @@ const InputPostPlace = ({ label, value, placeholder, maxlength, required, rows, 
         type="text"
         name={value}
         value={formState.value}
-        onChange={handleInputChange}
+        onChange={onChange}
         placeholder={placeholder}
         required={required}
         maxLength={maxlength}

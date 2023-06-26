@@ -1,16 +1,13 @@
-import { useState } from "react"
 import Select from "react-select"
 import "../../css/SelectCategories.css"
 
-const SelectCategories = () => {
-
-  const [categories, setCategories] = useState(null)
+const SelectCategories = ({ value, categories, setCategories }) => {
 
   const options = [
-    { value: "2", label: "Aventura" },
-    { value: "3", label: "Cultura" },
-    { value: "4", label: "Deporte" },
-    { value: "1", label: "Naturaleza" },
+    { value: "1", label: "Aventura" },
+    { value: "2", label: "Cultura" },
+    { value: "3", label: "Deporte" },
+    { value: "4", label: "Naturaleza" },
     { value: "5", label: "Relajación" },
     { value: "6", label: "Romántico" }
   ]
@@ -19,7 +16,7 @@ const SelectCategories = () => {
       <label htmlFor="categories">Categorías:</label>
       <Select
         className="select-categories"
-        name="categories"
+        name={value}
         defaultValue={categories}
         onChange={setCategories}
         isMulti

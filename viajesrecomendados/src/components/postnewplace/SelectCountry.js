@@ -1,15 +1,13 @@
-import { useState } from "react"
 import "../../css/SelectCountry.css"
 
-const SelectCountry = () => {
-  const [country, setCountry] = useState("")
+const SelectCountry = ({ onChange, formState, value }) => {
   return (
     <>
       <label>País:</label>
       <select
-        name="country"
-        value={country}
-        onChange={(e) => { setCountry(e.target.value) }}
+        name={value}
+        value={formState.value}
+        onChange={onChange}
         required
         className="select-country">
         <option value="" disabled>Selecciona el País</option>
