@@ -1,40 +1,27 @@
 import React, { useState, useContext } from "react";
 import {UserContext} from "../../context/UserContext"
+import { updateUser } from "../../services";
 
 
 const ChangeName = () => {
   const [newName, setNewName] = useState("");
-  const { user, token } = useContext(UserContext);
+  const { user, token, setForceUpdate, forceUpdate } = useContext(UserContext);
   const [successMessage, setSuccessMessage] = useState(null);
   const [status, setStatus] = useState();
 
-  const handleButton = (e) => {
+  const handleButton = async (e) => {
     e.preventDefault();
 
     if (user && newName) {
      
-      fetch(`${process.env.REACT_APP_BACKEND}/users/update/${user[0].id}`, {
-        method: "PATCH",
-        body: JSON.stringify({ name: newName }),
-        headers: {
-          authorization: token,
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          if (response.status === "ok") {
-            setSuccessMessage("Cambio realizado con éxito");
-            setStatus("success");
-          } else {
-            setSuccessMessage(`No se ha podido realizar el cambio: ${response.message}`);
-            setStatus("error");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-          
-        });
+      const data = { name: newName };
+      const response = await updateUser(`${process.env.REACT_APP_BACKEND}/users/update/${user[0].id}`, data, token, false);
+
+      setSuccessMessage(response.message);
+      setStatus(response.success ? "success" : "error");
+      if (response.success) {
+        setForceUpdate(!forceUpdate);
+      }
     }
   };
 

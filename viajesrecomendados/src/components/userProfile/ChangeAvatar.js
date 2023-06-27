@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { updateUser } from "../../services";
 import '../../css/editUserComponent.css'
 
 const ChangeAvatar = () => {
@@ -12,34 +13,22 @@ const ChangeAvatar = () => {
     setFile(e.target.files[0]);
   };
 
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
 
     if ( user && file) {
-      const formData = new FormData();
-      formData.append("avatar", file);
+      const data = new FormData();
+      data.append("avatar", file);
 
-      fetch(`${process.env.REACT_APP_BACKEND}/users/update/${user[0].id}`, {
-        method: "PATCH",
-        body: formData,
-        headers: {
-          authorization: token,
-        },
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          if (response.status === "ok") {
-            setSuccessMessage("Cambio realizado con éxito");
-            setForceUpdate(!forceUpdate);
-            setStatus("success");
-          } else {
-            setSuccessMessage(`No se ha podido realizar el cambio: ${response.message}`);
-            setStatus("error");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      const response = await updateUser(`${process.env.REACT_APP_BACKEND}/users/update/${user[0].id}`, data, token, true);
+
+      setSuccessMessage(response.message);
+      setStatus(response.success ? "success" : "error");
+
+      if (response.success) {
+        setForceUpdate(!forceUpdate);
+      }
+    
     }
   };
 

@@ -1,44 +1,26 @@
 import React, { useState, useContext } from "react";
 import {UserContext} from "../../context/UserContext"
+import { updateUser } from "../../services";
 
 
 const ChangePwd = () => {
 
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const { token } = useContext(UserContext);
+  const {token} = useContext(UserContext);
   const [successMessage, setSuccessMessage] = useState(null);
   const [status, setStatus] = useState();
-
-
-  const newPwd = async ({ oldPwd, newPwd, token }) => {
-    
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/newpassword`, {
-      method: "PATCH",
-      body: JSON.stringify({ oldPwd, newPwd }),
-      headers: {
-        authorization: token,
-        "Content-Type": "application/json",
-      },
-    });
   
-    const json = await response.json();
-  
-    if (!response.ok) {
-      setSuccessMessage(`No se ha podido realizar el cambio, ${json.message}`);
-      setStatus("success");
-    }else{
-      setSuccessMessage("Cambio realizado con éxito");
-      setStatus("error");
-    }
-  
-  
-    return json.data;
-  };
-  
-  const handleButton = (e) => {
+  const handleButton = async (e) => {
     e.preventDefault();
-    newPwd({ oldPwd: oldPassword, newPwd: newPassword, token: token });
+    const data = {
+      "oldPwd": oldPassword,
+      "newPwd": newPassword
+    };    
+    const response = await updateUser(`${process.env.REACT_APP_BACKEND}/users/newpassword`, data, token, false);
+    console.log(response)
+    setSuccessMessage(`${response.message}`);
+    setStatus(response.success ? "success" : "error");
     
   };
   
