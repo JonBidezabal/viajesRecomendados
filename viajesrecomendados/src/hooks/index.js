@@ -14,10 +14,11 @@ const useByCountry = (country) =>
 const useMostVoted = () =>
   useFetch(`${process.env.REACT_APP_BACKEND}/places/listvotes`);
 
-
 const useByCategory = (id) =>
   useFetch(`${process.env.REACT_APP_BACKEND}/places/category/${id}`);
 
+const useByCategoryList = () =>
+  useFetch(`${process.env.REACT_APP_BACKEND}/categorylist`);
 
 export {
   useAllPlaces,
@@ -26,4 +27,5 @@ export {
   useByCountry,
   useMostVoted,
   useByCategory,
+  useByCategoryList,
 };
