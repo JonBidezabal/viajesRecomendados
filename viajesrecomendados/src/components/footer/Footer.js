@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./style.css";
+import logoGit from "../../img/github.png";
+import logoLinkedin from "../../img/linkedin.png";
 
 const Footer = () => {
   return (
@@ -12,7 +14,7 @@ const Footer = () => {
       <section>
         Contacto:
         <ul>
-          <img src="./github.png" alt="logo" width="60px" />
+          <img src={logoGit} alt="logo" width="60px" />
           <li>
             <Link to="https://github.com/bykarol" target="_blank">
               {" "}
@@ -40,7 +42,7 @@ const Footer = () => {
         </ul>
         <ul>
           {" "}
-          <img src="./linkedin.png" alt="logo" width="50px" />
+          <img src={logoLinkedin} alt="logo" width="50px" />
           <li>
             <Link
               to="https://www.linkedin.com/in/karolbrachoyanez/"

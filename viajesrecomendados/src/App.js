@@ -4,7 +4,6 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import EditProfile from "./pages/EditProfilePage";
-import Categories from "./pages/Categories";
 import PostPlacePage from "./pages/PostPlacePage";
 import MostVotedPage from "./pages/MostVotedPage";
 import PlaceDetailPage from "./pages/PlaceDetailPage";
@@ -26,7 +25,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/users/editprofile" element={<EditProfile />} />
-        <Route path="/places/categories" element={<Categories />} />
         <Route path="/places/newplace" element={<PostPlacePage />} />
         <Route path="/places/mostvoted" element={<MostVotedPage />} />
         <Route path="/places/:id" element={<PlaceDetailPage />} />

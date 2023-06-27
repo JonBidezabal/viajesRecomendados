@@ -8,7 +8,7 @@ const Auth = () => {
 
   return user ? (
     <section>
-      Hola <Link to={`user/${user[0].id}`}>{user[0].name}</Link>
+      Hola <Link to={`/users/editprofile`}>{user[0].name}</Link>
       <button onClick={() => logout()}>❌</button>
     </section>
   ) : (
