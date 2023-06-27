@@ -1,43 +1,44 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {UserContext} from "../../context/UserContext"
-
+import { updateUser } from "../../services";
 
 const ChangeMail = () => {
-  const { user, token } = useContext(UserContext);
+  const { user, token, forceUpdate, setForceUpdate } = useContext(UserContext);
 const [newEmail, setNewEmail] = useState("");
-const [change, setChange] = useState(false)
+const [validation, setValidation] = useState()
 const [successMessage, setSuccessMessage] = useState(null);
 const [status, setStatus] = useState();
 
+// useEffect(() => {
+//   if (user && user[0].active === 1) {
+//     setValidation(true);
+//   }
+// }, [user]);
 
-  const handleChangeMail = (e) => {
+// useEffect(() => {
+//   if (status === "success") {
+//     const interval = setInterval(() => {
+//       setForceUpdate(!forceUpdate);
+//     }, 20000);
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   }
+// }, [status, setForceUpdate]);
+
+
+  const handleChangeMail = async (e) => {
     e.preventDefault();
 
     if (user && newEmail) {
-  
-        fetch(`${process.env.REACT_APP_BACKEND}/users/update/${user[0].id}`, {
-        method: "PATCH",
-        body: JSON.stringify({ email: newEmail }),
-        headers: {
-          authorization: token,
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          if (response.status === "ok") {
-            setSuccessMessage("Cambio realizado con éxito");
-            setStatus("success");
-          } else {
-            setSuccessMessage(`No se ha podido realizar el cambio: ${response.message}`);
-            setStatus("error");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      const data = { email: newEmail };
+      const response = await updateUser(`${process.env.REACT_APP_BACKEND}/users/update/${user[0].id}`, data, token, false);
+      setSuccessMessage(`${response.message}`);
+      setStatus(response.success ? "success" : "error");
+
     }
-    setChange(true)
+   
   };
 
   return (
@@ -51,9 +52,8 @@ const [status, setStatus] = useState();
         </div>
         <button type="submit" className="update-button">Actualizar</button>
       </form>
-      {/* {user[0].active == 0 && change === true && <p>Revisa la bandeja de entrada de este email para validar la cuenta.</p>} */}
-      {/* {user[0].active == 1 && <p>Modificacion de email realizada con éxito</p>} */}
-      {successMessage && <div className={status}>{successMessage}</div>}
+      {successMessage && !validation && <p>Revisa la bandeja de entrada de este email para validar la cuenta.</p>}
+      {successMessage && validation && <div className={status}>{successMessage}</div>}
     </div>
   );
 };
