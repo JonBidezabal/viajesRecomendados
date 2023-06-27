@@ -81,6 +81,19 @@
   .update-button:hover {
     background-color: #45a049;
   }
+  .success{
+    background-color: #4caf50;
+}
+.error{
+  background-color: #ff0000;
+
+}
+.error, .success{
+    color: #fff;
+    max-width: 150px;
+    border-radius: 5%;
+    padding: 5px;
+}
   
   @media (min-width: 768px) {
     .eu-component-container {

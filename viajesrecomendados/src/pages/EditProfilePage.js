@@ -15,7 +15,6 @@ const EditProfile = () => {
 
   const { user } = useContext(UserContext);
 
-
   const handleButtonProfile = () => {
     setShowAvatar(!showAvatar);
     setActive(!active);
@@ -61,7 +60,7 @@ const EditProfile = () => {
         <p className="user-info">Email: {user[0].email}</p>
       )}
       {user && (
-        <p className="user-info">Registro: {user[0].date}</p>
+        <p className="user-info">Registro: {new Date(user[0].date).toLocaleDateString()}</p>
       )}
       </div>
       </div>

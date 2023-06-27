@@ -5,7 +5,8 @@ import {UserContext} from "../../context/UserContext"
 const ChangeName = () => {
   const [newName, setNewName] = useState("");
   const { user, token } = useContext(UserContext);
-
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [status, setStatus] = useState();
 
   const handleButton = (e) => {
     e.preventDefault();
@@ -21,7 +22,15 @@ const ChangeName = () => {
         },
       })
         .then((response) => response.json())
-
+        .then((response) => {
+          if (response.status === "ok") {
+            setSuccessMessage("Cambio realizado con éxito");
+            setStatus("success");
+          } else {
+            setSuccessMessage(`No se ha podido realizar el cambio: ${response.message}`);
+            setStatus("error");
+          }
+        })
         .catch((error) => {
           console.error(error);
           
@@ -46,6 +55,7 @@ const ChangeName = () => {
         </div>
         <button onClick={handleButton} className="update-button">Actualizar</button>
       </div>
+      {successMessage && <div className={status}>{successMessage}</div>}
     </div>
   );
 };

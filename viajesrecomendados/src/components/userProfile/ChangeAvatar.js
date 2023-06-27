@@ -3,8 +3,10 @@ import { UserContext } from "../../context/UserContext";
 import '../../css/editUserComponent.css'
 
 const ChangeAvatar = () => {
-  const { user, token } = useContext(UserContext);
+  const { user, token, setForceUpdate, forceUpdate } = useContext(UserContext);
   const [file, setFile] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [status, setStatus] = useState();
 
   const handleInput = (e) => {
     setFile(e.target.files[0]);
@@ -25,6 +27,16 @@ const ChangeAvatar = () => {
         },
       })
         .then((response) => response.json())
+        .then((response) => {
+          if (response.status === "ok") {
+            setSuccessMessage("Cambio realizado con éxito");
+            setForceUpdate(!forceUpdate);
+            setStatus("success");
+          } else {
+            setSuccessMessage(`No se ha podido realizar el cambio: ${response.message}`);
+            setStatus("error");
+          }
+        })
         .catch((error) => {
           console.error(error);
         });
@@ -37,14 +49,15 @@ const ChangeAvatar = () => {
       <h2 className="eu-component-h2">Cambiar imagen de perfil</h2>
       </div>
       <form onSubmit={handleUpload}>
-          <label className="input-file-container">
-            <span>Seleccionar archivo</span>
-            <input type="file" onChange={handleInput}/>
-          </label>
+      <label className="input-file-container">
+          <span>{file ? "Archivo seleccionado" : "Seleccionar archivo"}</span>
+          <input type="file" onChange={handleInput} />
+        </label>
         <button className="update-button" type="submit">
           Actualizar
         </button>
       </form>
+            {successMessage && <div className={status}>{successMessage}</div>}
     </div>
   );
 };
