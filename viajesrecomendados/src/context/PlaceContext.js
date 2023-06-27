@@ -7,6 +7,12 @@ export const PlaceContextProvider = ({ children }) => {
   const [categories, setCategories] = useState([])
   const [photos, setPhotos] = useState([])
 
+  const handleInputChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target
+    setFormState({ ...formState, [name]: value })
+  }
+
   return (
     <PlaceContext.Provider value={
       {
@@ -15,7 +21,8 @@ export const PlaceContextProvider = ({ children }) => {
         photos,
         setFormState,
         setCategories,
-        setPhotos
+        setPhotos,
+        handleInputChange
       }
     }>
       {children}

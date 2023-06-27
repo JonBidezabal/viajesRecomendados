@@ -7,18 +7,15 @@ import { useContext } from "react";
 import { PlaceContext } from "../context/PlaceContext";
 
 const PostPlacePage = () => {
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target
-    setFormState({ ...formState, [name]: value })
-  }
+
   const {
     formState,
     categories,
     photos,
     setFormState,
     setCategories,
-    setPhotos
+    setPhotos,
+    handleInputChange
   } = useContext(PlaceContext)
   return (
     <section className="post-place-page">
