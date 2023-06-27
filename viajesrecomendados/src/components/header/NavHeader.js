@@ -1,4 +1,4 @@
-import { usePlaces } from "../../hooks";
+import { useAllPlaces } from "../../hooks";
 import { useState } from "react";
 import "./style.css";
 
@@ -6,7 +6,7 @@ const NavHeader = () => {
   const [showCountries, setShowCountries] = useState(false);
   const [showCities, setShowCities] = useState(false);
 
-  const placeInfo = usePlaces();
+  const placeInfo = useAllPlaces();
   if (!placeInfo) {
     return <div>Cargando...</div>;
   }
