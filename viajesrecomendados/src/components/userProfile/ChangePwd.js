@@ -7,7 +7,8 @@ const ChangePwd = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const { token } = useContext(UserContext);
-
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [status, setStatus] = useState();
 
 
   const newPwd = async ({ oldPwd, newPwd, token }) => {
@@ -24,8 +25,13 @@ const ChangePwd = () => {
     const json = await response.json();
   
     if (!response.ok) {
-      throw new Error(json.message);
+      setSuccessMessage(`No se ha podido realizar el cambio, ${json.message}`);
+      setStatus("success");
+    }else{
+      setSuccessMessage("Cambio realizado con éxito");
+      setStatus("error");
     }
+  
   
     return json.data;
   };
@@ -61,6 +67,8 @@ const ChangePwd = () => {
         </div>
         <button onClick={handleButton} className="update-button">Actualizar</button>
       </div>
+      {successMessage && <div className={status}>{successMessage}</div>}
+
     </div>
   );
 };

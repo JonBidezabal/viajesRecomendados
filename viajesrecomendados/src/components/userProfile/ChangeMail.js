@@ -6,6 +6,9 @@ const ChangeMail = () => {
   const { user, token } = useContext(UserContext);
 const [newEmail, setNewEmail] = useState("");
 const [change, setChange] = useState(false)
+const [successMessage, setSuccessMessage] = useState(null);
+const [status, setStatus] = useState();
+
 
   const handleChangeMail = (e) => {
     e.preventDefault();
@@ -21,6 +24,15 @@ const [change, setChange] = useState(false)
         },
       })
         .then((response) => response.json())
+        .then((response) => {
+          if (response.status === "ok") {
+            setSuccessMessage("Cambio realizado con éxito");
+            setStatus("success");
+          } else {
+            setSuccessMessage(`No se ha podido realizar el cambio: ${response.message}`);
+            setStatus("error");
+          }
+        })
         .catch((error) => {
           console.error(error);
         });
@@ -41,6 +53,7 @@ const [change, setChange] = useState(false)
       </form>
       {/* {user[0].active == 0 && change === true && <p>Revisa la bandeja de entrada de este email para validar la cuenta.</p>} */}
       {/* {user[0].active == 1 && <p>Modificacion de email realizada con éxito</p>} */}
+      {successMessage && <div className={status}>{successMessage}</div>}
     </div>
   );
 };

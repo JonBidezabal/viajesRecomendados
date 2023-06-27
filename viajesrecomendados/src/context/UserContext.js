@@ -6,6 +6,8 @@ export const UserContext = createContext(null);
 export const UserContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
+  const [forceUpdate, setForceUpdate] = useState(false);
+
 
   useEffect(() => {
     localStorage.setItem("token", token);
@@ -24,7 +26,7 @@ export const UserContextProvider = ({ children }) => {
     };
 
     if (token) registeredUserData();
-  }, [token, setToken]);
+  }, [token, setToken, forceUpdate]);
 
   const logout = () => {
     setToken("");
@@ -36,7 +38,7 @@ export const UserContextProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ token, user, login, logout }}>
+    <UserContext.Provider value={{ token, user, login, logout, setForceUpdate, forceUpdate }}>
       {children}
     </UserContext.Provider>
   );
