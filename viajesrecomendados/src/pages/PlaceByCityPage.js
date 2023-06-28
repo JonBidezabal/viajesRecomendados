@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useByCity } from "../hooks/index";
 import "../css/placeBy.css";
 
@@ -26,7 +26,9 @@ const PlaceByCity = () => {
         <ul className="place-by-map-container">
           {places.map((place) => (
             <li key={place.id}>
-              <h3>{place.title}</h3>
+              <Link to={`/places/${place.id}`}>
+                <h3>{place.title}</h3>
+              </Link>
               <p>{place.shortDescription}</p>
               <p>Ciudad: {place.city}</p>
               <p>Pais: {place.country}</p>
