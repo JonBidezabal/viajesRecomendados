@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useByCity } from "../hooks/index";
+import "../css/placeBy.css";
 
 const PlaceByCity = () => {
   const { city } = useParams();
@@ -15,21 +16,35 @@ const PlaceByCity = () => {
     return <div>No se encontraron experiencias en {cityToUpper}</div>;
   }
 
-  const places = response.data[cityToUpper];
-  console.log(places)
+  const places = response.data;
+  console.log(response.data);
 
   return (
-    <div>
-      <h2>Experencias en {cityToUpper}</h2>
-      <ul>
-        {places.map((place, index) => (
-          <li key={index}>
-            <h3>{place.title}</h3>
-            <p>{place.shortDescription}</p>
-            <p>En {place.city}, {place.country}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="place-by-container">
+      <h2 className="place-by-title">Experiencias en {cityToUpper}</h2>
+      {places && (
+        <ul className="place-by-map-container">
+          {places.map((place) => (
+            <li key={place.id}>
+              <h3>{place.title}</h3>
+              <p>{place.shortDescription}</p>
+              <p>Ciudad: {place.city}</p>
+              <p>Pais: {place.country}</p>
+              {place.photos && (
+                <div className="place-by-gallery">
+                  {place.photos.map((photo, index) => (
+                    <img
+                      key={index}
+                      src={`${process.env.REACT_APP_BACKEND}/${photo}`}
+                      alt={`Experiencia en ${cityToUpper}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
