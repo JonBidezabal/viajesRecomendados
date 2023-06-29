@@ -5,7 +5,7 @@ const PostsList = ({ posts }) => {
     <ul className="posts-list">
       {posts?.data.map((post) => {
         return (
-          <li key={post.id}>
+          <li key={post.place_id}>
             <PostCard post={post} />
           </li>
         )

@@ -86,4 +86,5 @@ export const postPlaceService = async (formData, token) => {
   if (!res.ok) {
     throw new Error(json.message)
   }
+  return json
 }
