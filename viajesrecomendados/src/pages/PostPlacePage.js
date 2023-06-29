@@ -43,7 +43,7 @@ const PostPlacePage = () => {
 
     try {
       const newPlace = await postPlaceService(formData, token)
-      navigate(`/places/:${newPlace.data.entry[0].place_id}`)
+      navigate(`/places/${newPlace.data.entry[0].place_id}`)
     } catch (error) {
       console.log(error.message);
     }
