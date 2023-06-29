@@ -20,7 +20,7 @@ const HomePage = () => {
         {info && <PostsList posts={info} />}
       </section>
     </main>
-  );
-};
+  )
+}
 
 export default HomePage;
