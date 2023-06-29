@@ -72,3 +72,18 @@ export const getUserData = async (token) => {
   }
   return json.data;
 };
+
+export const postPlaceService = async (formData, token) => {
+  const res = await fetch(`${process.env.REACT_APP_BACKEND}/places/newplace`, {
+    method: "POST",
+    headers: {
+      "Authorization": token,
+    },
+    body: formData
+  })
+  const json = await res.json()
+
+  if (!res.ok) {
+    throw new Error(json.message)
+  }
+}

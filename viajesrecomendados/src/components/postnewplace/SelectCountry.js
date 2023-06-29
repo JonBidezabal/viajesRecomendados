@@ -10,7 +10,7 @@ const SelectCountry = ({ onChange, formState, value }) => {
         onChange={onChange}
         required
         className="select-country">
-        <option value="" disabled>Selecciona el País</option>
+        <option aria-selected>Selecciona el País</option>
         <option value="Afganistán">Afganistán</option>
         <option value="Albania">Albania</option>
         <option value="Alemania">Alemania</option>
