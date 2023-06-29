@@ -42,8 +42,8 @@ const PostPlacePage = () => {
     formData.append("photos", photos)
 
     try {
-      await postPlaceService(formData, token)
-      navigate("/")
+      const newPlace = await postPlaceService(formData, token)
+      navigate(`/places/:${newPlace.data.entry[0].place_id}`)
     } catch (error) {
       console.log(error.message);
     }
