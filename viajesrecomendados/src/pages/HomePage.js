@@ -1,6 +1,7 @@
 import PostsList from "../components/PostsList";
 import Categories from "../components/homepage/Categories";
 import { useAllPlaces } from "../hooks";
+import MostVotedPage from "./MostVotedPage";
 
 const HomePage = () => {
   const info = useAllPlaces();
@@ -9,9 +10,12 @@ const HomePage = () => {
     return <div>No se encontró ninguna experiencia</div>;
   return (
     <main>
+      <section className="most-voted">
+        <h2>Descubre las experiencias mejor valoradas</h2>
+        <MostVotedPage />
+      </section>
       <section className="homepage-categories">
         <h2>Busca tu experiencia por categoría</h2>
-
         <Categories />
       </section>
       <section className="list-all-places">
@@ -20,7 +24,7 @@ const HomePage = () => {
         {info && <PostsList posts={info} />}
       </section>
     </main>
-  )
-}
+  );
+};
 
 export default HomePage;

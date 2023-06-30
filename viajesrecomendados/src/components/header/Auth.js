@@ -13,12 +13,16 @@ const Auth = () => {
     </section>
   ) : (
     <ul className="auth">
-      <li>
-        <Link to="/login">INICIAR SESIÓN</Link>
+      <li className="auth-li">
+        <Link to="/login" className="auth-link">
+          INICIA SESIÓN
+        </Link>
       </li>
 
-      <li>
-        <Link to="/signup">REGÍSTRATE</Link>
+      <li className="auth-li">
+        <Link to="/signup" className="auth-link">
+          REGÍSTRATE
+        </Link>
       </li>
     </ul>
   );
