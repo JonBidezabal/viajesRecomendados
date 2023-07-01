@@ -1,15 +1,22 @@
+import { useContext } from "react";
 import PostsList from "../components/PostsList";
 import Categories from "../components/homepage/Categories";
 import { useAllPlaces } from "../hooks";
 import MostVotedPage from "./MostVotedPage";
+import { UserContext } from "../context/UserContext";
+
+import PostPlaceSection from "../components/PostPlaceSection";
 
 const HomePage = () => {
+  const { user } = useContext(UserContext);
+
   const info = useAllPlaces();
   if (!info) return <div>Cargando...</div>;
   if (info.status !== "ok")
     return <div>No se encontró ninguna experiencia</div>;
   return (
     <main>
+      {user && <PostPlaceSection user={user} />}
       <section className="most-voted">
         <h2>Descubre las experiencias mejor valoradas</h2>
         <MostVotedPage />
