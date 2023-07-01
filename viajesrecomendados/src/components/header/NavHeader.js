@@ -14,6 +14,12 @@ const NavHeader = () => {
     return <div>Cargando...</div>;
   }
   const data = placeInfo.data;
+  const countries = data.map((place) => place.country).sort();
+  const countriesNotDuplicated = [...new Set(countries)];
+
+  const cities = data.map((place) => place.city.toLowerCase()).sort();
+  const citiesNotDuplicated = [...new Set(cities)];
+
   const categoriesdata = categoryList.data;
 
   return (
@@ -30,12 +36,10 @@ const NavHeader = () => {
         </button>
 
         <ul className={`navheadercountries ${showCountries ? "show" : "hide"}`}>
-          {data?.map((place) => (
-            <li className="navheader-li" key={place.place_id}>
-              <a
-                className="navheader-a"
-                href={`/places/country/${place.country}`}>
-                {place.country}
+          {countriesNotDuplicated?.map((place, i) => (
+            <li className="navheader-li" key={i}>
+              <a className="navheader-a" href={`/places/country/${place}`}>
+                {place}
               </a>
             </li>
           ))}
@@ -52,11 +56,11 @@ const NavHeader = () => {
           Ciudades
         </button>
         <ul className={`navheadercities ${showCities ? "show" : "hide"}`}>
-          {data?.map((place) => (
-            <li className="navheader-li" key={place.place_id}>
-              <a className="navheader-a" href={`/places/city/${place.city}`}>
+          {citiesNotDuplicated?.map((place, i) => (
+            <li className="navheader-li" key={place}>
+              <a className="navheader-a" href={`/places/city/${place}`}>
                 {" "}
-                {place.city}
+                {place[0].toUpperCase() + place.substring(1)}
               </a>
             </li>
           ))}
