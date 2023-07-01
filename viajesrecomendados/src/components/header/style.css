@@ -99,6 +99,13 @@ header {
 }
 
 @media screen and (max-width: 480px) {
+  .header-h2 {
+    color: lightslategray;
+    font-size: 10px;
+  }
+  .header-h1 {
+    font-size: 20px;
+  }
   .header-button {
     display: flex;
   }
