@@ -1,41 +1,57 @@
-.navheadercountries.show .navcountries {
-  display: block;
-  list-style: none;
-}
 .navheadercountries.show {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-flow: row;
+  position: absolute;
 }
-
-.navheadercountries.hide .navcountries {
+.navheadercountries.hide {
   display: none;
 }
 
-.navheadercities.show .navcities {
-  display: block;
-  list-style: none;
-}
 .navheadercities.show {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  position: absolute;
 }
-.navheadercities.hide .navcities {
+
+.navheadercities.hide {
+  display: none;
+}
+.navheadercategories.show {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
+
+.navheadercategories.hide {
   display: none;
 }
 
+.navheadercountries,
+.navheadercities,
+.navheadercategories {
+  margin: 0 0.5em;
+}
+
+.navheader {
+  display: flex;
+  margin-right: 10rem;
+}
+
+.navheader-button {
+  all: unset;
+  margin: 0 0.5em;
+}
+.navheader-li {
+  margin: 0 0.5em;
+  list-style: none;
+}
 .auth {
   list-style: none;
   display: flex;
   flex-direction: row;
 }
-header nav .navheader {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-.navheader-button {
-  all: unset;
-}
+
 .navheader-a,
 .auth-link {
   text-decoration: none;
@@ -69,8 +85,8 @@ header {
 .header-ul {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-items: center;
+
+  align-items: flex-start;
 }
 .header-li {
   list-style: none;
@@ -90,8 +106,8 @@ header {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 0vh;
     opacity: 0;
     overflow: hidden;
@@ -99,12 +115,13 @@ header {
   }
   .header-nav.isActive {
     display: flex;
-    height: 50vh;
+    height: 35vh;
     opacity: 1;
   }
 
   .header-ul {
     flex-direction: column;
+    align-items: flex-start;
   }
   .header-li {
     margin: 0.5em 0;
@@ -113,7 +130,30 @@ header {
     flex-direction: column;
   }
   .navheader {
-    display: flex;
     flex-direction: column;
+  }
+  .navheadercities.hide,
+  .navheadercountries.hide,
+  .navheadercategories.hide {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 0vh;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  .navheadercities.show,
+  .navheadercountries.show,
+  .navheadercategories.show {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 15vh;
+    opacity: 1;
+    position: relative;
   }
 }
