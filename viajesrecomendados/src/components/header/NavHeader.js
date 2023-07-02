@@ -1,11 +1,17 @@
 import { useAllPlaces, useByCategoryList } from "../../hooks";
-import { useState } from "react";
+import { useContext } from "react";
 import "./style.css";
+import { HeaderContext } from "../../context/HeaderContext";
 
 const NavHeader = () => {
-  const [showCountries, setShowCountries] = useState(false);
-  const [showCities, setShowCities] = useState(false);
-  const [showCategories, setShowCategories] = useState(false);
+  const {
+    showCategories,
+    showCities,
+    showCountries,
+    setShowCategories,
+    setShowCities,
+    setShowCountries,
+  } = useContext(HeaderContext);
 
   const categoryList = useByCategoryList();
   const placeInfo = useAllPlaces();

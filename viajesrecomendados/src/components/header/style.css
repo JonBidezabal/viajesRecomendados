@@ -1,7 +1,7 @@
 .navheadercountries.show {
   display: flex;
-  flex-wrap: wrap;
-  flex-flow: row;
+
+  flex-flow: column;
   position: absolute;
 }
 .navheadercountries.hide {
@@ -10,7 +10,7 @@
 
 .navheadercities.show {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: absolute;
 }
 
@@ -19,7 +19,7 @@
 }
 .navheadercategories.show {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: absolute;
 }
 
@@ -81,10 +81,13 @@ header {
   background-color: black;
   color: white;
 }
-
+.header-nav {
+  width: 50%;
+}
 .header-ul {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
 
   align-items: flex-start;
 }
@@ -99,6 +102,9 @@ header {
 }
 
 @media screen and (max-width: 480px) {
+  header {
+    justify-content: space-between;
+  }
   .header-h2 {
     color: lightslategray;
     font-size: 10px;
@@ -161,6 +167,8 @@ header {
     align-items: flex-start;
     height: 15vh;
     opacity: 1;
-    position: relative;
+    position: inherit;
+    font-size: 13px;
+    overflow: auto;
   }
 }
