@@ -88,3 +88,25 @@ export const postPlaceService = async (formData, token) => {
   }
   return json
 }
+
+export const postVotes = async (url, vote, comment, token) => {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': token,
+      },
+      body: JSON.stringify({ vote, comment }),
+    });
+
+    const jsonResponse = await response.json();
+    if (jsonResponse.status === "ok") {
+      return { success: "true", message: "Cambio realizado con éxito", jsonResponse };
+    } else {
+      return { success: "false", message: `No se ha podido realizar la votación: ${jsonResponse.message}` };
+    }  } catch (error) {
+      console.error(error);
+      return { success: "false", message: "Error en la votacion", error };
+  }
+};

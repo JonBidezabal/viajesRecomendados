@@ -1,0 +1,12 @@
+.stars-container {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .emoji {
+    color: gray;
+  }
+  
+  .votation {
+    color: gold;
+  }
