@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { usePlaceDetail } from "../hooks/index";
+import { UserContext } from "../context/UserContext";
+import PlaceVote from "../components/placeDetail/PostVote"
+
+
 
 const PlaceDetail = () => {
   const { id } = useParams();
+  const { user } = useContext(UserContext);
   const response = usePlaceDetail(id);
+
 
   if (!response) {
     return <div>Cargando...</div>;
@@ -45,6 +51,8 @@ const PlaceDetail = () => {
     </li>
   ))}
 </ul>
+{user && <PlaceVote id={id} />}
+
     </div>
   );
 };
