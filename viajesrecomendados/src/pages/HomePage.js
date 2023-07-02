@@ -6,16 +6,18 @@ import MostVotedPage from "./MostVotedPage";
 import { UserContext } from "../context/UserContext";
 
 import PostPlaceSection from "../components/PostPlaceSection";
+import { HeaderContext } from "../context/HeaderContext";
 
 const HomePage = () => {
   const { user } = useContext(UserContext);
+  const { hidelist } = useContext(HeaderContext);
 
   const info = useAllPlaces();
   if (!info) return <div>Cargando...</div>;
   if (info.status !== "ok")
     return <div>No se encontró ninguna experiencia</div>;
   return (
-    <main>
+    <main onClick={hidelist}>
       {user && <PostPlaceSection user={user} />}
       <section className="most-voted">
         <h2>Descubre las experiencias mejor valoradas</h2>

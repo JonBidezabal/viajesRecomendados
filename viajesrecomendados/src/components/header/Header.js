@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import NavHeader from "./NavHeader";
 import Auth from "./Auth";
 import "./style.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { HeaderContext } from "../../context/HeaderContext";
 
 const Header = () => {
+  const { hidelist } = useContext(HeaderContext);
+
   const [menu, setMenu] = useState(false);
 
   const handleMenu = () => {
@@ -12,7 +15,7 @@ const Header = () => {
   };
   return (
     <header>
-      <section>
+      <section className="header-section" onClick={hidelist}>
         <h1 className="header-h1">
           <Link to="/">Travel Experience</Link>
         </h1>
