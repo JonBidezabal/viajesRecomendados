@@ -1,6 +1,6 @@
 import { useAllPlaces, useByCategoryList } from "../../hooks";
 import { useContext } from "react";
-import "./style.css";
+// import "./style.css";
 import { HeaderContext } from "../../context/HeaderContext";
 
 const NavHeader = () => {

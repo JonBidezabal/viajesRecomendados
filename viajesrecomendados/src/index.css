@@ -2,8 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1pt solid red; */
 }
 
 body {
   min-height: 100vh;
+  font-family: var(--font-content);
+  width: 100%;
+  margin: 0 auto;
 }
