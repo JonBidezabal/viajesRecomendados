@@ -1,6 +1,6 @@
 import Category from "./Category";
 import { useByCategoryList } from "../../hooks";
-import "./style.css";
+// import "./style.css";
 
 const Categories = () => {
   const data = useByCategoryList();

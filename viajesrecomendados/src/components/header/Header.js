@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import NavHeader from "./NavHeader";
 import Auth from "./Auth";
-import "./style.css";
+// import "./style.css";
 import { useContext, useState } from "react";
 import { HeaderContext } from "../../context/HeaderContext";
 

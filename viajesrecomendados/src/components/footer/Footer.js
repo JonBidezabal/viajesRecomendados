@@ -1,80 +1,54 @@
 import { Link } from "react-router-dom";
-import "./style.css";
+import "../../css/Footer.css"
 import logoGit from "../../img/github.png";
 import logoLinkedin from "../../img/linkedin.png";
 
 const Footer = () => {
   return (
-    <footer>
-      <p>
-        {" "}
-        © Travel Experience 2023. Hack a Boss, JSB18RT- GRUPO C. Todos los
-        derechos reservados.{" "}
-      </p>
+    <footer className="footer">
       <section>
-        Contacto:
-        <ul>
-          <img src={logoGit} alt="logo" width="60px" />
+        <h4>Cómo contactarnos</h4>
+        <ul className="footer-ul">
           <li>
-            <Link to="https://github.com/bykarol" target="_blank">
-              {" "}
-              Karol
-            </Link>
-          </li>
-          <li>
-            <Link to="https://github.com/JonBidezabal" target="_blank">
-              {" "}
-              Jon
-            </Link>
-          </li>
-          <li>
-            <Link to="https://github.com/IsabelAbad" target="_blank">
-              {" "}
-              Isabel
-            </Link>
-          </li>
-          <li>
-            <Link to="https://github.com/mercedesiniguez" target="_blank">
-              {" "}
-              Mercedes
-            </Link>
-          </li>
-        </ul>
-        <ul>
-          {" "}
-          <img src={logoLinkedin} alt="logo" width="50px" />
-          <li>
-            <Link
-              to="https://www.linkedin.com/in/karolbrachoyanez/"
+            <a href="https://github.com/bykarol" target="_blank">
+              <img src={logoGit} alt="logo github" /></a>
+            <a href="https://www.linkedin.com/in/karolbrachoyanez/"
               target="_blank">
-              Karol
-            </Link>
+              <img src={logoLinkedin} alt="logo linkedin" />
+            </a>
+            <span>Karol</span>
           </li>
           <li>
-            <Link
-              to="https://www.linkedin.com/in/jonmartinezdev/"
+            <a href="https://github.com/JonBidezabal" target="_blank">
+              <img src={logoGit} alt="logo github" /></a>
+            <a href="https://www.linkedin.com/in/jonmartinezdev/"
               target="_blank">
-              Jon
-            </Link>
+              <img src={logoLinkedin} alt="logo linkedin" /></a>
+            <span>Jon</span>
           </li>
           <li>
-            <Link
-              to="https://www.linkedin.com/in/isabel-abad-cami%C3%B1os/"
+            <a href="https://github.com/IsabelAbad" target="_blank">
+              <img src={logoGit} alt="logo github" /></a>
+            <a href="https://www.linkedin.com/in/isabel-abad-cami%C3%B1os/"
               target="_blank">
-              Isabel
-            </Link>
+              <img src={logoLinkedin} alt="logo linkedin" /></a>
+            <span>Isabel</span>
           </li>
           <li>
-            <Link
-              to="https://www.linkedin.com/in/mercedes-iniguez-quintela-1424ba7/"
+            <a href="https://github.com/mercedesiniguez" target="_blank">
+              <img src={logoGit} alt="logo github" /></a>
+            <a href="https://www.linkedin.com/in/mercedes-iniguez-quintela-1424ba7/"
               target="_blank">
-              Mercedes
-            </Link>
+              <img src={logoLinkedin} alt="logo linkedin" /></a>
+            <span>Mercedes</span>
           </li>
         </ul>
       </section>
-
-      <p>
+      <p className="footer-p1">
+        © Travel Experience 2023. Hack a Boss, JSB18RT- GRUPO C. Todos los
+        derechos reservados.
+      </p>
+      <p className="footer-p2">
         <span role="img" aria-label="Code" className="am-footer__code mr-1">
           <span
             aria-hidden="true"

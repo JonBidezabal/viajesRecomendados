@@ -1,0 +1,152 @@
+@import url("./base.css");
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 13px;
+}
+
+.footer img {
+  width: 30px;
+}
+
+.footer .footer-p1 {
+  border-bottom: 1pt solid gainsboro;
+}
+
+.footer .footer-p2,
+.footer-p1 {
+  background-color: var(--dark-green);
+  padding: .8rem;
+}
+
+.footer section {
+  background-color: var(--light-green);
+  padding: .5rem;
+}
+
+.footer section h4 {
+  padding-bottom: 1rem;
+}
+
+.footer .footer-ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer .footer-ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .3rem;
+}
+
+.footer .footer-ul li span {
+  flex: 1 auto;
+  text-align: center;
+}
+
+/*Footer animaciones último parrafo*/
+.footer .mr-1 {
+  margin-right: 0.3125rem;
+}
+
+.footer .am-footer__love .am-font-awesome {
+  transition: all 0.22s ease-in-out;
+}
+
+.footer .footer-p2 .am-font-awesome svg {
+  width: 2em;
+  fill: currentColor;
+}
+
+.footer .footer-p2 svg {
+  display: initial;
+}
+
+.footer img,
+.footer .footer-p2 object,
+.footer .footer-p2 svg,
+.footer .footer-p2 video {
+  vertical-align: middle;
+}
+
+.footer .footer-p2 svg:not(:root) {
+  overflow-clip-margin: content-box;
+  overflow: hidden;
+}
+
+.footer .footer-p2 .mx-1 {
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+}
+
+.footer .am-footer__coffee .am-font-awesome {
+  transition: all 0.22s ease-in-out;
+}
+
+.footer .am-font-awesome {
+  display: inline-block;
+  line-height: 1;
+  height: 2em;
+}
+
+.footer .am-footer__code:hover .am-font-awesome,
+.footer .am-footer__coffee:hover .am-font-awesome {
+  color: #ffb405;
+  transform: scale(1.35);
+}
+
+.footer .am-footer__love:hover .am-font-awesome {
+  color: #ff6460;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: pulse;
+}
+
+.footer .am-footer__love .am-font-awesome {
+  transition: all 0.22s ease-in-out;
+}
+
+.footer .am-font-awesome {
+  display: inline-block;
+  line-height: 1;
+  height: 2em;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.35, 1.35, 1.35);
+    transform: scale3d(1.35, 1.35, 1.35);
+  }
+
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+@media (min-width: 570px) {
+  .footer .footer-ul li {
+    align-items: end;
+  }
+
+  .footer .footer-ul li span,
+  .footer section h4 {
+    font-size: 1rem;
+  }
+
+
+}
