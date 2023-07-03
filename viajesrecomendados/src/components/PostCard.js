@@ -13,7 +13,15 @@ const PostCard = ({ post }) => {
             )}`
             : "No hay votos aún"}
         </p>
-      </Link>
+        {post.votes_qty &&
+          <p>
+            {post.votes_qty} {post.votes_qty === 1 ? "Voto" : "Votos"}
+          </p>}
+        {post.comments_qty &&
+          <p>
+            {post.votes_average && post.comments_qty} {post.comments_qty === 1 ? "Comentario" : "Comentarios"}
+          </p>}
+      </Link >
     </>
   );
 };
