@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../css/postCard.css"
+import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 
 const PostCard = ({ post }) => {
   return (
@@ -9,11 +10,11 @@ const PostCard = ({ post }) => {
         <div>
           <h3 title="Ver este lugar">{post.title}</h3>
           <span>
-            {post.votes_average
-              ? `${"⭐".repeat(post.votes_average)}${"☆".repeat(
-                5 - post.votes_average
-              )}`
-              : "No hay votos aún"}
+            {post.votes_average &&
+              [... new Array(5)].map((star, index) => {
+                return index < post.votes_average ? <AiFillStar color="#ffbd00" /> : <AiOutlineStar />
+              })
+            }
           </span>
           {
             post.votes_qty &&
