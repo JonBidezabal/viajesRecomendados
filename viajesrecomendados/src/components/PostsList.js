@@ -2,6 +2,7 @@ import PostCard from "./PostCard"
 import "../css/postsList.css";
 
 const PostsList = ({ posts }) => {
+
   return (
     <ul className="posts-list-ul">
       {posts?.data.map((post) => {
