@@ -19,19 +19,22 @@ const Auth = () => {
       <button onClick={() => logout()}>❌</button>
     </section>
   ) : (
-    <ul className="auth" onClick={hidelist}>
-      <li className="auth-li">
-        <Link to="/login" className="auth-link">
-          INICIA SESIÓN
-        </Link>
-      </li>
+    <>
+      <h4>Gestión de usuario</h4>
+      <ul className="auth" onClick={hidelist}>
+        <li className="auth-li">
+          <Link to="/login" className="auth-link">
+            INICIA SESIÓN
+          </Link>
+        </li>
 
-      <li className="auth-li">
-        <Link to="/signup" className="auth-link">
-          REGÍSTRATE
-        </Link>
-      </li>
-    </ul>
+        <li className="auth-li">
+          <Link to="/signup" className="auth-link">
+            REGÍSTRATE
+          </Link>
+        </li>
+      </ul>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import { useAllPlaces, useByCategoryList } from "../../hooks";
 import { useContext } from "react";
 import "../../css/Header.css";
 import { HeaderContext } from "../../context/HeaderContext";
+import { Link } from "react-router-dom";
 
 const NavHeader = () => {
   const {
@@ -30,6 +31,7 @@ const NavHeader = () => {
 
   return (
     <div className="navheader">
+      <h4>Filtro de búsqueda</h4>
       <section className="navheader-section">
         <button
           className="navheader-button"
@@ -44,9 +46,9 @@ const NavHeader = () => {
         <ul className={`navheadercountries ${showCountries ? "show" : "hide"}`}>
           {countriesNotDuplicated?.map((place, i) => (
             <li className="navheader-li" key={i}>
-              <a className="navheader-a" href={`/places/country/${place}`}>
+              <Link className="navheader-a" to={`/places/country/${place}`}>
                 {place}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -64,10 +66,10 @@ const NavHeader = () => {
         <ul className={`navheadercities ${showCities ? "show" : "hide"}`}>
           {citiesNotDuplicated?.map((place, i) => (
             <li className="navheader-li" key={place}>
-              <a className="navheader-a" href={`/places/city/${place}`}>
+              <Link className="navheader-a" to={`/places/city/${place}`}>
                 {" "}
                 {place[0].toUpperCase() + place.substring(1)}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -87,12 +89,12 @@ const NavHeader = () => {
           className={`navheadercategories ${showCategories ? "show" : "hide"}`}>
           {categoriesdata?.map((category) => (
             <li className="navheader-li" key={category.id}>
-              <a
+              <Link
                 className="navheader-a"
-                href={`/places/category/${category.id}`}>
+                to={`/places/category/${category.id}`}>
                 {" "}
                 {category.category_name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

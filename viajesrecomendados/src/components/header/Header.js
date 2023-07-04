@@ -45,6 +45,17 @@ const Header = () => {
           <li className="header-li">
             <NavHeader />
           </li>
+          <li>
+            <h4>Ordenar lugares</h4>
+            <ul>
+              <Link to={"/places/mostvoted"}>
+                <li>Mejores reseñas</li>
+              </Link>
+              <Link to={"/"}>
+                <li>Por fecha</li>
+              </Link>
+            </ul>
+          </li>
           <li className="header-li">
             <Auth />
           </li>

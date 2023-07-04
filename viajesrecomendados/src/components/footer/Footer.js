@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <section>
-        <h4>Cómo contactarnos</h4>
+        <h4>Desarrolladores</h4>
         <ul className="footer-ul">
           <li>
             <a href="https://github.com/bykarol" target="_blank">
