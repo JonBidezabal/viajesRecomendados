@@ -1,0 +1,9 @@
+.list-homepage-categories {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.list-homepage-categories li {
+  list-style: none;
+}

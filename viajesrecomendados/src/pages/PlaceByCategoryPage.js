@@ -9,7 +9,7 @@ const PlaceByCategoryPage = () => {
   if (placesByCategory.status !== "ok") return <div>Categoría no disponible</div>
   return (
     <main>
-      <h2>Categoría {placesByCategory.data[0].category_name}</h2>
+      <h2>Categoría {placesByCategory.data.category_name}</h2>
       <PostsList posts={placesByCategory} />
     </main>
   )

@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
           <span>
             {post.votes_average &&
               [... new Array(5)].map((star, index) => {
-                return index < post.votes_average ? <AiFillStar color="#ffbd00" /> : <AiOutlineStar />
+                return (index < post.votes_average ? <AiFillStar color="#ffbd00" key={index} /> : <AiOutlineStar key={index} />)
               })
             }
           </span>
