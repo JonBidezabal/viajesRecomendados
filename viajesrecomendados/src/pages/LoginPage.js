@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { logInUserService } from "../services";
+import "../css/Forms.css"
 
 
 const LoginPage = () => {
@@ -25,7 +26,7 @@ const LoginPage = () => {
   };
 
   return (
-    <section>
+    <main className="login-page">
       <h2>Iniciar sesión</h2>
       <form onSubmit={handleForm}>
         <label htmlFor="email">Correo electrónico</label>
@@ -51,7 +52,8 @@ const LoginPage = () => {
         <button>Iniciar Sesión</button>
         {error && <p>{error}</p>}
       </form>
-    </section>
+      <p>¿No tienes cuenta? - <Link to={"/signup"}>Regístrate</Link></p>
+    </main>
   );
 };
 

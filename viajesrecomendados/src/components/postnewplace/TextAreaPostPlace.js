@@ -4,7 +4,7 @@ const InputPostPlace = ({ onChange, formState, label, value, placeholder, maxlen
 
   return (
     <>
-      <label htmlFor={value} className="input-label">{label}:</label>
+      <label htmlFor={value} className="input-label">{label}{required && <span className="obligatorio">*</span>}</label>
       <textarea
         type="text"
         name={value}

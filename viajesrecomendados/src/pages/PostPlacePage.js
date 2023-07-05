@@ -50,16 +50,16 @@ const PostPlacePage = () => {
   }
 
   return (
-    <section className="post-place-page">
-      <h2>Publica un nuevo lugar/experiencia</h2>
+    <main className="post-place-page">
+      <h2>Publica una nueva experiencia</h2>
       <form onSubmit={handleSubmit} name="postplace-form" className="post-place-page-form">
         <InputPostPlace onChange={handleInputChange} formState={formState} label="Título" value="title" placeholder="Título del lugar/experiencia" maxlength={100} required={true} />
         <TextAreaPostPlace onChange={handleInputChange} formState={formState} label="Breve descripción del lugar/experiencia" value="shortDescription" placeholder="¿Qué fue lo que más te gusto de este lugar/experiencia?" maxlength={200} required={true} rows={5} />
         <TextAreaPostPlace onChange={handleInputChange} formState={formState} label="Descripción detallada del lugar (opcional)" value="largeDescription" placeholder="¿Quieres compartir más detalles sobre este lugar/experiencia? / ¿fue fácil el acceso? / presupuesto aproximado / entre otros." maxlength={500} required={false} rows={10} />
         <SelectCountry onChange={handleInputChange} formState={formState} value="country" required={true} />
         <InputPostPlace onChange={handleInputChange} formState={formState} label="Ciudad" value="city" placeholder="Ciudad" maxlength={100} required={true} />
-        <fieldset id="images-accordion">
-          <legend>Selecciona una imágen</legend>
+        <fieldset className="post-place-file">
+          <legend>Selecciona una imágen<span className="obligatorio">*</span></legend>
           <input
             type="file"
             accept="image/*"
@@ -71,7 +71,7 @@ const PostPlacePage = () => {
         <SelectCategories value="categories" categories={categories} setCategories={setCategories} />
         <button>Publicar el lugar</button>
       </form >
-    </section>
+    </main>
   )
 }
 

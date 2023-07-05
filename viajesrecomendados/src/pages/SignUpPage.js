@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { signUpService } from "../services/index"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "../css/Forms.css"
 
 const SignUpPage = () => {
   const navigate = useNavigate()
@@ -32,24 +33,25 @@ const SignUpPage = () => {
       <h2>Regístrate</h2>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="email">Correo Electrónico</label>
+          <label htmlFor="email">Correo Electrónico<span className="obligatorio">*</span></label>
           <input type="email" id="email" name="email" required onChange={handleChange} />
         </fieldset>
         <fieldset>
-          <label htmlFor="username">Nombre de usuario</label>
+          <label htmlFor="username">Nombre de usuario<span className="obligatorio">*</span></label>
           <input type="text" id="username" name="username" required onChange={handleChange} />
         </fieldset>
         <fieldset>
-          <label htmlFor="password1">Contraseña</label>
+          <label htmlFor="password1">Contraseña<span className="obligatorio">*</span></label>
           <input type="password" id="password1" name="password1" required onChange={handleChange} />
         </fieldset>
         <fieldset>
-          <label htmlFor="password2">Repite tu contraseña</label>
+          <label htmlFor="password2">Repite tu contraseña<span className="obligatorio">*</span></label>
           <input type="password" id="password2" name="password2" required onChange={handleChange} />
         </fieldset>
         <button>Registrarme</button>
         {error && <p>{error}</p>}
       </form>
+      <p>¿Ya tienes cuenta? - <Link to={"/login"}>Inicia sesión</Link></p>
 
     </main>
   )
