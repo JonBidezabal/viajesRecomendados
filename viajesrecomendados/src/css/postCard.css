@@ -1,8 +1,10 @@
 .post-card-section {
-  /* border-radius: 10px; */
+  border-radius: 10px;
   width: 100%;
-  height: 200px;
+  height: 300px;
   position: relative;
+  opacity: .8;
+  transition: opacity 1s ease-out 0s;
 }
 
 .post-card-section img {
@@ -16,14 +18,10 @@
   color: black;
   background-color: gainsboro;
   opacity: .7;
-  z-index: 0;
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
-  transition: background 1s ease-out 0s;
-  /* border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; */
 }
 
 .post-card-section div .post-card-p {
@@ -35,6 +33,12 @@
   padding: .2rem;
 }
 
-.post-card-section div:hover {
-  opacity: .8;
+.post-card-section:hover {
+  opacity: 1;
+}
+
+@media (min-width: 698px) {
+  .post-card-section {
+    height: 400px;
+  }
 }
