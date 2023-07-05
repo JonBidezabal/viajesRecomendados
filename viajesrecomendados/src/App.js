@@ -15,6 +15,7 @@ import Header from "./components/header/Header";
 
 import PlaceByCategoryPage from "./pages/PlaceByCategoryPage";
 import Footer from "./components/footer/Footer";
+import AllPlaces from "./components/homepage/AllPlaces";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/users/editprofile" element={<EditProfile />} />
         <Route path="/places/newplace" element={<PostPlacePage />} />
         <Route path="/places/mostvoted" element={<MostVotedPage />} />
+        <Route path="/places/allplaces" element={<AllPlaces />} />
         <Route path="/places/:id" element={<PlaceDetailPage />} />
         <Route path="/places/category/:id" element={<PlaceByCategoryPage />} />
         <Route path="/places/city/:city" element={<PlaceByCity />} />

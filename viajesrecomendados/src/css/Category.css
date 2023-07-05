@@ -42,3 +42,10 @@
   font-weight: bold;
   color: black;
 }
+
+@media (min-width: 698px) {
+  .post-card-category div {
+    width: 100%;
+    height: 400px;
+  }
+}

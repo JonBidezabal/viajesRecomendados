@@ -1,22 +1,17 @@
 import { useContext } from "react";
-import PostsList from "../components/PostsList";
 import Categories from "../components/homepage/Categories";
-import { useAllPlaces } from "../hooks";
 import MostVotedPage from "./MostVotedPage";
 import { UserContext } from "../context/UserContext";
 import "../css/HomePage.css"
 import PostPlaceSection from "../components/PostPlaceSection";
 import { HeaderContext } from "../context/HeaderContext";
 import CategoriesSlider from "../components/homepage/CategoriesSlider";
+import AllPlaces from "../components/homepage/AllPlaces";
 
 const HomePage = () => {
   const { user } = useContext(UserContext);
   const { hidelist } = useContext(HeaderContext);
 
-  const info = useAllPlaces();
-  if (!info) return <div>Cargando...</div>;
-  if (info.status !== "ok")
-    return <div>No se encontró ninguna experiencia</div>;
   return (
     <main onClick={hidelist} className="home-page">
       {user && <PostPlaceSection user={user} />}
@@ -26,10 +21,10 @@ const HomePage = () => {
         <Categories />
         {/* <CategoriesSlider /> */}
       </section>
-      <section className="list-all-places">
+      <section>
         <h2>Reseñas más recientes</h2>
         <h3>Descubre los siguientes lugares</h3>
-        {info && <PostsList posts={info} />}
+        <AllPlaces />
       </section>
       <section className="most-voted">
         <h2>Descubre las experiencias mejor valoradas</h2>

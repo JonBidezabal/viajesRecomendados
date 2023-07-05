@@ -5,11 +5,24 @@
   margin: 1rem 0;
 }
 
-.home-page h2,
 .home-page h3 {
   color: var(--dark-green);
+  font-weight: 400;
 }
 
-.home-page h2 {
-  text-shadow: 1px 0px 3px #1c1c1c;
+.home-page section:not(:first-child),
+.home-page .homepage-categories h2,
+.home-page .homepage-categories h3 {
+  text-align: center;
+}
+
+
+@media (min-width: 698px) {
+
+  .home-page section:not(:first-child),
+  .home-page .homepage-categories h2,
+  .home-page .homepage-categories h3 {
+    margin: 0 1.5rem;
+    text-align: left;
+  }
 }

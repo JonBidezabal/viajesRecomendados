@@ -51,7 +51,7 @@ const Header = () => {
               <Link to={"/places/mostvoted"}>
                 <li>Mejores reseñas</li>
               </Link>
-              <Link to={"/"}>
+              <Link to={"/places/allplaces"}>
                 <li>Por fecha</li>
               </Link>
             </ul>
