@@ -13,7 +13,7 @@ const SelectCategories = ({ value, categories, setCategories }) => {
   ]
   return (
     <>
-      <label htmlFor="categories">Categorías:</label>
+      <label htmlFor="categories">Categorías<span className="obligatorio">*</span></label>
       <Select
         className="select-categories"
         name={value}

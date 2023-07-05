@@ -5,13 +5,11 @@
 .post-place-page .post-place-page-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
   width: 90%;
   margin: 0 auto;
 }
 
-#images-accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.post-place-file {
+  padding: 1rem;
 }

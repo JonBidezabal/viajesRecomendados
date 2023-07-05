@@ -3,7 +3,7 @@ import "../../css/SelectCountry.css"
 const SelectCountry = ({ onChange, formState, value }) => {
   return (
     <>
-      <label>País:</label>
+      <label>País<span className="obligatorio">*</span></label>
       <select
         name={value}
         value={formState.value}

@@ -6,3 +6,38 @@
   --dark-beige: #fce181;
   --font-content: "Montserrat", sans-serif;
 }
+
+.obligatorio {
+  color: red;
+}
+
+
+.login-page button,
+.sign-up-page button {
+  all: unset;
+  background-color: var(--light-green);
+  padding: .5rem;
+  box-shadow: 1px 1px 1px var(--dark-green);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--dark-green);
+  text-align: center;
+}
+
+form button,
+form button {
+  all: unset;
+  background-color: var(--light-green);
+  padding: .5rem;
+  box-shadow: 1px 1px 1px var(--dark-green);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--dark-green);
+  text-align: center;
+}
+
+form button:hover {
+  background-color: var(--dark-green);
+  padding: .7rem;
+  color: white;
+}

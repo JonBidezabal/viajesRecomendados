@@ -16,7 +16,7 @@ const Auth = () => {
         src={`${process.env.REACT_APP_BACKEND}/${user[0].avatar}`}
         width="30px"
       />
-      <button onClick={() => logout()}>❌</button>
+      <button onClick={() => logout()}><Link to={"/"}>❌</Link></button>
     </section>
   ) : (
     <>
