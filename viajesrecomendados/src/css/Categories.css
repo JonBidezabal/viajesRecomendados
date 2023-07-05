@@ -7,3 +7,10 @@
 .list-homepage-categories li {
   list-style: none;
 }
+
+@media (min-width: 698px) {
+  .list-homepage-categories {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

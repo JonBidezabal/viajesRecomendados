@@ -45,8 +45,7 @@ const Footer = () => {
         </ul>
       </section>
       <p className="footer-p1">
-        © Travel Experience 2023. Hack a Boss, JSB18RT- GRUPO C. Todos los
-        derechos reservados.
+        Travel Experience 2023. Hack a Boss, JSB18RT- GRUPO C.
       </p>
       <p className="footer-p2">
         <span role="img" aria-label="Code" className="am-footer__code mr-1">

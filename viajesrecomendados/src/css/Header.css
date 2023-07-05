@@ -1,6 +1,5 @@
 .navheadercountries.show {
   display: flex;
-
   flex-flow: column;
   position: absolute;
 }
@@ -97,9 +96,15 @@ header {
 
 .header-button {
   all: unset;
-  display: none;
-  background-color: var(--dark-green);
+  /* display: none; */
+  color: var(--dark-green);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.header-button:hover {
   color: white;
+  font-size: 1.2rem;
 }
 
 .header-nav {
