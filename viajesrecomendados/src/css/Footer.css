@@ -3,38 +3,39 @@
 .footer {
   display: flex;
   flex-direction: column;
-  padding: 1rem 0;
   text-align: center;
   font-size: 13px;
 }
 
-.footer img {
-  width: 30px;
+.footer .footer-ul img {
+  width: 25px;
+  border-radius: 50% 50%;
+  transition: background .5s ease-in 0s;
 }
 
 .footer .footer-p1 {
-  border-bottom: 1pt solid gainsboro;
-}
-
-.footer .footer-p2,
-.footer-p1 {
-  background-color: var(--dark-green);
-  padding: .8rem;
-}
-
-.footer section {
   background-color: var(--light-green);
+  padding: 1rem;
+}
+
+.footer>section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--dark-green);
   padding: .5rem;
 }
 
-.footer section h4 {
-  padding-bottom: 1rem;
+.footer .footer-p2 {
+  border-bottom: 1pt solid gainsboro;
+  padding: .5rem;
 }
 
 .footer .footer-ul {
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -44,6 +45,17 @@
   justify-content: center;
   align-items: center;
   gap: .3rem;
+  transition: color, font-size .5s linear 0s;
+}
+
+.footer .footer-ul img:hover {
+  box-shadow: 2px 2px 10px var(--dark-green);
+  background-color: var(--light-green)
+}
+
+.footer .footer-ul li:hover {
+  color: var(--light-green);
+  font-size: 14px;
 }
 
 .footer .footer-ul li span {
@@ -52,8 +64,11 @@
 }
 
 /*Footer animaciones último parrafo*/
-.footer .mr-1 {
-  margin-right: 0.3125rem;
+.footer .footer-p2 {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer .am-footer__love .am-font-awesome {
@@ -61,7 +76,7 @@
 }
 
 .footer .footer-p2 .am-font-awesome svg {
-  width: 2em;
+  width: 25px;
   fill: currentColor;
 }
 
@@ -76,24 +91,8 @@
   vertical-align: middle;
 }
 
-.footer .footer-p2 svg:not(:root) {
-  overflow-clip-margin: content-box;
-  overflow: hidden;
-}
-
-.footer .footer-p2 .mx-1 {
-  margin-left: 0.3125rem;
-  margin-right: 0.3125rem;
-}
-
 .footer .am-footer__coffee .am-font-awesome {
   transition: all 0.22s ease-in-out;
-}
-
-.footer .am-font-awesome {
-  display: inline-block;
-  line-height: 1;
-  height: 2em;
 }
 
 .footer .am-footer__code:hover .am-font-awesome,
@@ -115,12 +114,6 @@
   transition: all 0.22s ease-in-out;
 }
 
-.footer .am-font-awesome {
-  display: inline-block;
-  line-height: 1;
-  height: 2em;
-}
-
 @keyframes pulse {
   0% {
     -webkit-transform: scaleX(1);
@@ -138,15 +131,15 @@
   }
 }
 
-@media (min-width: 570px) {
-  .footer .footer-ul li {
-    align-items: end;
+@media (min-width: 752px) {
+  .footer section {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2px;
+    border-bottom: 1pt solid gainsboro;
   }
 
-  .footer .footer-ul li span,
-  .footer section h4 {
-    font-size: 1rem;
+  .footer section .footer-p2 {
+    border-bottom: none;
   }
-
-
 }
