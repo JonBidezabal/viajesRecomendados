@@ -26,7 +26,6 @@
     margin: 10px auto;
   }
 
-  
   @media only screen and (min-width: 768px) {
     .place-by-container {
         text-align: left;

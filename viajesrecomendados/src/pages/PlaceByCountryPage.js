@@ -1,9 +1,12 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useByCountry } from "../hooks/index";
+import "../css/placeBy.css";
+
 
 const PlaceByCountry = () => {
   const { country } = useParams();
+  const navigate = useNavigate();
   const countryToUpper = country.charAt(0).toUpperCase() + country.slice(1);
   const response = useByCountry(country);
 
@@ -14,7 +17,9 @@ const PlaceByCountry = () => {
   if (response.status !== "ok") {
     return <div>No se encontraron experiencias en {countryToUpper}</div>;
   }
-
+  const handleClick = (placeId) => {
+    navigate(`/places/${placeId}`);
+  };
   const places = response.data;
 
   return (
@@ -23,15 +28,12 @@ const PlaceByCountry = () => {
       {places && (
         <ul className="place-by-map-container">
           {places.map((place) => (
-            <li key={place.id}>
-              <Link to={`/places/${place.id}`}>
-                <h3>{place.title}</h3>
-              </Link>
+            <li key={place.id} onClick={() => handleClick(place.id)}>
+              <h3>{`${place.title},  ${countryToUpper},  ${place.country}`}</h3>
               <p>{place.shortDescription}</p>
-              <p>Ciudad: {place.city}</p>
-              <p>Pais: {place.country}</p>
+          
               {place.photos && (
-                <div>
+                <div className="place-by-gallery">
                   {place.photos.map((photo, index) => (
                     <img
                       key={index}

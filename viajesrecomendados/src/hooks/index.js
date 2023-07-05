@@ -20,6 +20,9 @@ const useByCategory = (id) =>
 const useByCategoryList = () =>
   useFetch(`${process.env.REACT_APP_BACKEND}/categorylist`);
 
+const useUsersList = () =>
+  useFetch(`${process.env.REACT_APP_BACKEND}/users/usersinfo`);
+
 export {
   useAllPlaces,
   usePlaceDetail,
@@ -28,4 +31,5 @@ export {
   useMostVoted,
   useByCategory,
   useByCategoryList,
+  useUsersList
 };
