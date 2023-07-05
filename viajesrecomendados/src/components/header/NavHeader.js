@@ -4,7 +4,7 @@ import "../../css/Header.css";
 import { HeaderContext } from "../../context/HeaderContext";
 import { Link } from "react-router-dom";
 
-const NavHeader = () => {
+const NavHeader = ({ setMenu }) => {
   const {
     showCategories,
     showCities,
@@ -46,7 +46,13 @@ const NavHeader = () => {
         <ul className={`navheadercountries ${showCountries ? "show" : "hide"}`}>
           {countriesNotDuplicated?.map((place, i) => (
             <li className="navheader-li" key={i}>
-              <Link className="navheader-a" to={`/places/country/${place}`}>
+              <Link
+                className="navheader-a"
+                to={`/places/country/${place}`}
+                onClick={() => {
+                  setMenu(false);
+                  setShowCountries(false);
+                }}>
                 {place}
               </Link>
             </li>
@@ -66,7 +72,13 @@ const NavHeader = () => {
         <ul className={`navheadercities ${showCities ? "show" : "hide"}`}>
           {citiesNotDuplicated?.map((place, i) => (
             <li className="navheader-li" key={place}>
-              <Link className="navheader-a" to={`/places/city/${place}`}>
+              <Link
+                className="navheader-a"
+                to={`/places/city/${place}`}
+                onClick={() => {
+                  setMenu(false);
+                  setShowCities(false);
+                }}>
                 {" "}
                 {place[0].toUpperCase() + place.substring(1)}
               </Link>
@@ -91,7 +103,11 @@ const NavHeader = () => {
             <li className="navheader-li" key={category.id}>
               <Link
                 className="navheader-a"
-                to={`/places/category/${category.id}`}>
+                to={`/places/category/${category.id}`}
+                onClick={() => {
+                  setMenu(false);
+                  setShowCategories(false);
+                }}>
                 {" "}
                 {category.category_name}
               </Link>

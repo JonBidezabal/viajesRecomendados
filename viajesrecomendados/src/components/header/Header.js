@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import NavHeader from "./NavHeader";
 import Auth from "./Auth";
 import "../../css/Header.css";
-import "../../css/base.css"
+import "../../css/base.css";
 import { useContext, useState } from "react";
 import { HeaderContext } from "../../context/HeaderContext";
 
@@ -19,7 +19,9 @@ const Header = () => {
       <header>
         <section className="header-section" onClick={hidelist}>
           <h1 className="header-h1">
-            <Link to="/" className="header-link">Travel Experience</Link>
+            <Link to="/" className="header-link" onClick={() => setMenu(false)}>
+              Travel Experience
+            </Link>
           </h1>
           <h2 className="header-h2">
             Tu punto de referencia para la mejor experiencia de tu vida
@@ -43,21 +45,21 @@ const Header = () => {
       <nav className={`header-nav ${menu ? "isActive" : ""}`}>
         <ul className="header-ul">
           <li className="header-li">
-            <NavHeader />
+            <NavHeader setMenu={setMenu} />
           </li>
           <li>
             <h4>Ordenar lugares</h4>
             <ul>
-              <Link to={"/places/mostvoted"}>
+              <Link to={"/places/mostvoted"} onClick={() => setMenu(false)}>
                 <li>Mejores reseñas</li>
               </Link>
-              <Link to={"/places/allplaces"}>
+              <Link to={"/places/allplaces"} onClick={() => setMenu(false)}>
                 <li>Por fecha</li>
               </Link>
             </ul>
           </li>
           <li className="header-li">
-            <Auth />
+            <Auth setMenu={setMenu} />
           </li>
         </ul>
       </nav>
