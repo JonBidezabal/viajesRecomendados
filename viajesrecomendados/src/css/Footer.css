@@ -112,6 +112,7 @@
 
 .footer .am-footer__love .am-font-awesome {
   transition: all 0.22s ease-in-out;
+  display: inline-block;
 }
 
 @keyframes pulse {

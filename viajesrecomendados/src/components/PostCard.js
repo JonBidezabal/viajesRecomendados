@@ -4,8 +4,8 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 
 const PostCard = ({ post }) => {
   return (
-    <section className="post-card-section">
-      <Link to={`/places/${post.place_id}`}>
+    <article className="post-card-section">
+      <Link to={`/places/${post.place_id ? post.place_id : post.id}`}>
         {post.photo && <img src={`${process.env.REACT_APP_BACKEND}/${post.photo}`} alt={`Foto de ${post.title}`} />}
         <div>
           <h3 title="Ver este lugar">{post.title}</h3>
@@ -30,7 +30,7 @@ const PostCard = ({ post }) => {
           }
         </div>
       </Link >
-    </section >
+    </article >
   );
 };
 
