@@ -18,7 +18,7 @@ const HomePage = () => {
       <section className="homepage-categories">
         <h2>¿No sabes por dónde comenzar?</h2>
         <h3>Explora nuestras categorías</h3>
-        <Categories />
+        <Categories className="banner-categories" />
         {/* <CategoriesSlider /> */}
       </section>
       <section>

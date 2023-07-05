@@ -35,14 +35,14 @@ function Category({ category }) {
   }
   return (
     <>
-      <section className="post-card-category">
+      <div className="post-card-category">
         <div>
           <Link to={`/places/category/${category.id}`} className="link-categories">
             <img src={`${catImage}`} alt={`Categoría ${category.category_name} - foto`} />
             <p title={category.category_name}>{category.category_name}</p>
           </Link>
         </div>
-      </section >
+      </div >
     </>
   );
 }

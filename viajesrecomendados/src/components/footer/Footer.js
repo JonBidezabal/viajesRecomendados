@@ -41,8 +41,6 @@ const Footer = () => {
         </p>
         <ul className="footer-ul">
           <li>
-            {/* <a href="https://github.com/bykarol" target="_blank">
-              <img src={logoGit} alt="logo github" /></a> */}
             <a href="https://www.linkedin.com/in/karolbrachoyanez/"
               target="_blank">
               <img src={logoLinkedin} alt="logo linkedin" />
@@ -50,24 +48,18 @@ const Footer = () => {
             <span>Karol</span>
           </li>
           <li>
-            {/* <a href="https://github.com/JonBidezabal" target="_blank">
-              <img src={logoGit} alt="logo github" /></a> */}
             <a href="https://www.linkedin.com/in/jonmartinezdev/"
               target="_blank">
               <img src={logoLinkedin} alt="logo linkedin" /></a>
             <span>Jon</span>
           </li>
           <li>
-            {/* <a href="https://github.com/IsabelAbad" target="_blank">
-              <img src={logoGit} alt="logo github" /></a> */}
             <a href="https://www.linkedin.com/in/isabel-abad-cami%C3%B1os/"
               target="_blank">
               <img src={logoLinkedin} alt="logo linkedin" /></a>
             <span>Isabel</span>
           </li>
           <li>
-            {/* <a href="https://github.com/mercedesiniguez" target="_blank">
-              <img src={logoGit} alt="logo github" /></a> */}
             <a href="https://www.linkedin.com/in/mercedes-iniguez-quintela-1424ba7/"
               target="_blank">
               <img src={logoLinkedin} alt="logo linkedin" /></a>

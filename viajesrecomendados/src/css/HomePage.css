@@ -1,7 +1,7 @@
 .home-page {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   margin: 1rem 0;
 }
 
@@ -10,18 +10,13 @@
   font-weight: 400;
 }
 
-.home-page section:not(:first-child),
-.home-page .homepage-categories h2,
-.home-page .homepage-categories h3 {
+.home-page section {
   text-align: center;
 }
 
-
 @media (min-width: 698px) {
 
-  .home-page section:not(:first-child),
-  .home-page .homepage-categories h2,
-  .home-page .homepage-categories h3 {
+  .home-page section {
     margin: 0 1.5rem;
     text-align: left;
   }
