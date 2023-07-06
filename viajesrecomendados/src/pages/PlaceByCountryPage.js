@@ -29,7 +29,7 @@ const PlaceByCountry = () => {
         <ul className="place-by-map-container">
           {places.map((place) => (
             <li key={place.id} onClick={() => handleClick(place.id)}>
-              <h3>{`${place.title},  ${countryToUpper},  ${place.country}`}</h3>
+              <h3>{`${place.title},  ${place.city},  ${place.country}`}</h3>
               <p>{place.shortDescription}</p>
           
               {place.photos && (
