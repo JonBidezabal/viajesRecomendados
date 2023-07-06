@@ -1,31 +1,19 @@
-.navheadercountries.show {
+.navheadercountries {
   display: flex;
   flex-flow: column;
   position: absolute;
 }
 
-.navheadercountries.hide {
-  display: none;
-}
-
-.navheadercities.show {
+.navheadercities {
   display: flex;
   flex-direction: column;
   position: absolute;
 }
 
-.navheadercities.hide {
-  display: none;
-}
-
-.navheadercategories.show {
+.navheadercategories {
   display: flex;
   flex-direction: column;
   position: absolute;
-}
-
-.navheadercategories.hide {
-  display: none;
 }
 
 .navheadercountries,
@@ -80,15 +68,6 @@ header {
   background-color: var(--light-green);
 }
 
-.header-h2 {
-  color: lightslategray;
-  font-size: 20px;
-}
-
-.header-h1 {
-  font-size: 30px;
-}
-
 .header-link {
   text-decoration: none;
   color: black;
@@ -109,11 +88,13 @@ header {
 
 .header-nav {
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-ul {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-between;
   align-items: flex-start;
 }
@@ -132,10 +113,6 @@ header {
 .header-svg {
   width: 2em;
   height: 2em;
-}
-
-header {
-  justify-content: space-between;
 }
 
 .header-h2 {
@@ -163,7 +140,7 @@ header {
   transition: all 0.5s ease;
 }
 
-.header-nav.isActive {
+.header-nav {
   display: flex;
   transition: all 0.5s ease;
   height: 35vh;
@@ -188,9 +165,9 @@ header {
   flex-direction: column;
 }
 
-.navheadercities.hide,
-.navheadercountries.hide,
-.navheadercategories.hide {
+.navheadercities,
+.navheadercountries,
+.navheadercategories {
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -202,9 +179,9 @@ header {
   transition: all 0.5s ease;
 }
 
-.navheadercities.show,
-.navheadercountries.show,
-.navheadercategories.show {
+.navheadercities,
+.navheadercountries,
+.navheadercategories {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;

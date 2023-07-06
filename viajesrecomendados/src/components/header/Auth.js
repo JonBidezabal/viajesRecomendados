@@ -8,7 +8,10 @@ const Auth = ({ setMenu }) => {
   const { user, logout } = useContext(UserContext);
   const { hidelist } = useContext(HeaderContext);
   return user ? (
-    <section className="auth-section" onAuxClick={hidelist}>
+    /*Enlaces con el login y el registro, si ya estás logueado sale una sección con tu nombre y la 
+    posibilidad de modificar tu perfil */
+
+    <section className="auth-section" onClick={hidelist}>
       Hola{" "}
       <Link to={`/users/editprofile`} onClick={() => setMenu(false)}>
         {user[0].name}
