@@ -8,7 +8,7 @@ const PostPlaceSection = ({ user }) => {
       <div className="welcome-msg">
         <h2>Nos encanta verte de nuevo por aquí <span>{user[0].name}</span></h2>
         <p>
-          Comparte nueva experiencia viajera
+          Comparte una nueva experiencia viajera
         </p>
         <p>
           <Link to={"/places/newplace"}>NUEVO POST <AiFillEdit className="edit-post-emoticon" /></Link>
