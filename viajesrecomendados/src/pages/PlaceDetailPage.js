@@ -6,6 +6,7 @@ import InfoCard from "../components/placeDetail/InfoCard";
 import PhotoCard from "../components/placeDetail/PhotoCard";
 import '../css/placeDetail.css'
 
+
 const PlaceDetail = () => {
   const { id } = useParams();
   const [votations, setVotations] = useState();
@@ -30,6 +31,6 @@ const PlaceDetail = () => {
   </div>
   </>
   );
-};
+}
 
 export default PlaceDetail;
