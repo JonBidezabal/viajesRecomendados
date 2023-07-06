@@ -1,8 +1,8 @@
 import { useAllPlaces, useByCategoryList } from "../../hooks";
 import { useContext } from "react";
-import "../../css/Header.css";
 import { HeaderContext } from "../../context/HeaderContext";
 import { Link } from "react-router-dom";
+import "../../css/Header.css";
 
 const NavHeader = ({ setMenu }) => {
   const {
@@ -21,6 +21,8 @@ const NavHeader = ({ setMenu }) => {
     return <div>Cargando...</div>;
   }
   const data = placeInfo.data;
+
+  /*Ordeno las listas de  países y ciudades por orden alfabético y no se duplican*/
   const countries = data.map((place) => place.country).sort();
   const countriesNotDuplicated = [...new Set(countries)];
 
@@ -32,6 +34,9 @@ const NavHeader = ({ setMenu }) => {
   return (
     <div className="navheader">
       <h4>Filtro de búsqueda</h4>
+
+      {/*Boton para desplegar lista de paises, cuando clicamos cerramos las listas de ciudades y categorías
+ cuando clicamos en cualquier enlace de las listas setmenu pliega el menu */}
       <section className="navheader-section">
         <button
           className="navheader-button"
@@ -42,23 +47,26 @@ const NavHeader = ({ setMenu }) => {
           }}>
           Países
         </button>
-
-        <ul className={`navheadercountries ${showCountries ? "show" : "hide"}`}>
-          {countriesNotDuplicated?.map((place, i) => (
-            <li className="navheader-li" key={i}>
-              <Link
-                className="navheader-a"
-                to={`/places/country/${place}`}
-                onClick={() => {
-                  setMenu(false);
-                  setShowCountries(false);
-                }}>
-                {place}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {showCountries && (
+          <ul className={"navheadercountries "}>
+            {countriesNotDuplicated?.map((place, i) => (
+              <li className="navheader-li" key={i}>
+                <Link
+                  className="navheader-a"
+                  to={`/places/country/${place}`}
+                  onClick={() => {
+                    setMenu(false);
+                    setShowCountries(false);
+                  }}>
+                  {place}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
+
+      {/*Boton para desplegar lista de ciudades, cuando clicamos cerramos las listas de categorías y paises */}
       <section className="navheader-section">
         <button
           className="navheader-button"
@@ -69,24 +77,27 @@ const NavHeader = ({ setMenu }) => {
           }}>
           Ciudades
         </button>
-        <ul className={`navheadercities ${showCities ? "show" : "hide"}`}>
-          {citiesNotDuplicated?.map((place, i) => (
-            <li className="navheader-li" key={place}>
-              <Link
-                className="navheader-a"
-                to={`/places/city/${place}`}
-                onClick={() => {
-                  setMenu(false);
-                  setShowCities(false);
-                }}>
-                {" "}
-                {place[0].toUpperCase() + place.substring(1)}
-              </Link>
-            </li>
-          ))}
-        </ul>
+
+        {showCities && (
+          <ul className={"navheadercities"}>
+            {citiesNotDuplicated?.map((place, i) => (
+              <li className="navheader-li" key={place}>
+                <Link
+                  className="navheader-a"
+                  to={`/places/city/${place}`}
+                  onClick={() => {
+                    setMenu(false);
+                    setShowCities(false);
+                  }}>
+                  {place[0].toUpperCase() + place.substring(1)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
+      {/*Boton para desplegar lista de categorías, cuando clicamos cerramos las listas de ciudades y paises */}
       <section className="navheader-section">
         <button
           className="navheader-button"
@@ -97,23 +108,24 @@ const NavHeader = ({ setMenu }) => {
           }}>
           Categorías
         </button>
-        <ul
-          className={`navheadercategories ${showCategories ? "show" : "hide"}`}>
-          {categoriesdata?.map((category) => (
-            <li className="navheader-li" key={category.id}>
-              <Link
-                className="navheader-a"
-                to={`/places/category/${category.id}`}
-                onClick={() => {
-                  setMenu(false);
-                  setShowCategories(false);
-                }}>
-                {" "}
-                {category.category_name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+
+        {showCategories && (
+          <ul className={"navheadercategories"}>
+            {categoriesdata?.map((category) => (
+              <li className="navheader-li" key={category.id}>
+                <Link
+                  className="navheader-a"
+                  to={`/places/category/${category.id}`}
+                  onClick={() => {
+                    setMenu(false);
+                    setShowCategories(false);
+                  }}>
+                  {category.category_name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </div>
   );

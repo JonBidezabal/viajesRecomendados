@@ -15,18 +15,22 @@ const Header = () => {
     setMenu(!menu);
   };
   return (
-    <>
-      <header>
-        <section className="header-section" onClick={hidelist}>
-          <h1 className="header-h1">
-            <Link to="/" className="header-link" onClick={() => setMenu(false)}>
-              Travel Experience
-            </Link>
-          </h1>
-          <h2 className="header-h2">
-            Tu punto de referencia para la mejor experiencia de tu vida
-          </h2>
-        </section>
+    <header>
+      {/*Sección para el título del header */}
+      <section className="header-section" onClick={hidelist}>
+        <h1 className="header-h1">
+          <Link to="/" className="header-link" onClick={() => setMenu(false)}>
+            Travel Experience
+          </Link>
+        </h1>
+        <h2 className="header-h2">
+          Tu punto de referencia para la mejor experiencia de tu vida
+        </h2>
+      </section>
+
+      {/*Otra seccion del header con el botón que lleva la imagen svg(hamburguesa), cuando clicas despliega el menú con 
+      los componentes Auth y NavHeader */}
+      <section className="header-section-menu">
         <button onClick={handleMenu} className="header-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,29 +45,32 @@ const Header = () => {
             />
           </svg>
         </button>
-      </header>
-      <nav className={`header-nav ${menu ? "isActive" : ""}`}>
-        <ul className="header-ul">
-          <li className="header-li">
-            <NavHeader setMenu={setMenu} />
-          </li>
-          <li>
-            <h4>Ordenar lugares</h4>
-            <ul>
-              <Link to={"/places/mostvoted"} onClick={() => setMenu(false)}>
-                <li>Mejores reseñas</li>
-              </Link>
-              <Link to={"/places/allplaces"} onClick={() => setMenu(false)}>
-                <li>Por fecha</li>
-              </Link>
+        {menu && (
+          <nav className={"header-nav"}>
+            <ul className="header-ul">
+              <li className="header-li">
+                <NavHeader setMenu={setMenu} />
+              </li>
+              <li>
+                <ul>
+                  <h4>Ordenar lugares</h4>
+                  <Link to={"/places/mostvoted"} onClick={() => setMenu(false)}>
+                    <li>Mejores reseñas</li>
+                  </Link>
+                  <Link to={"/places/allplaces"} onClick={() => setMenu(false)}>
+                    <li>Por fecha</li>
+                  </Link>
+                </ul>
+              </li>
+
+              <li className="header-li">
+                <Auth setMenu={setMenu} />
+              </li>
             </ul>
-          </li>
-          <li className="header-li">
-            <Auth setMenu={setMenu} />
-          </li>
-        </ul>
-      </nav>
-    </>
+          </nav>
+        )}
+      </section>
+    </header>
   );
 };
 
