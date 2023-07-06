@@ -7,6 +7,7 @@ const MostVotedPage = () => {
   if (info.status !== "ok") return <div>No se encontró ninguna experiencia</div>
   return (
     <main>
+      <h2>Los más votados</h2>
       {info && <PostsList posts={info} />
       }
     </main>

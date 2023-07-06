@@ -115,8 +115,13 @@ header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-
   align-items: flex-start;
+}
+
+.header-ul img.auth-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50% 50%;
 }
 
 .header-li {

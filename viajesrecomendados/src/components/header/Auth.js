@@ -17,7 +17,6 @@ const Auth = ({ setMenu }) => {
         className="auth-avatar"
         alt="avatar"
         src={`${process.env.REACT_APP_BACKEND}/${user[0].avatar}`}
-        width="30px"
       />
       <button onClick={() => logout()}>
         <Link to={"/"} onClick={() => setMenu(false)}>

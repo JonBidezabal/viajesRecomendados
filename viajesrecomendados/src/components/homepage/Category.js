@@ -39,7 +39,7 @@ function Category({ category }) {
         <div>
           <Link to={`/places/category/${category.id}`} className="link-categories">
             <img src={`${catImage}`} alt={`Categoría ${category.category_name} - foto`} />
-            <p title={category.category_name}>{category.category_name}</p>
+            <p>{category.category_name}</p>
           </Link>
         </div>
       </div >
