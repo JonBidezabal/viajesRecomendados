@@ -1,15 +1,15 @@
 export const signUpService = async (name, email, password) => {
   const res = await fetch(`${process.env.REACT_APP_BACKEND}/users/newuser`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", },
-    body: JSON.stringify({ email, password, name })
-  })
-  const json = await res.json()
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password, name }),
+  });
+  const json = await res.json();
 
   if (!res.ok) {
-    throw new Error(json.message)
+    throw new Error(json.message);
   }
-}
+};
 
 export const updateUser = async (url, data, token, isFileUpload = false) => {
   try {
@@ -33,14 +33,17 @@ export const updateUser = async (url, data, token, isFileUpload = false) => {
     if (response.ok) {
       return { success: true, message: "Cambio realizado con éxito", response };
     } else {
-      return { success: false, message: `No se ha podido realizar el cambio: ${json.message}`, response };
+      return {
+        success: false,
+        message: `No se ha podido realizar el cambio: ${json.message}`,
+        response,
+      };
     }
   } catch (error) {
     console.error(error);
     return { success: false, message: "Error en la solicitud" };
   }
 };
-
 
 export const logInUserService = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/login`, {
@@ -77,36 +80,61 @@ export const postPlaceService = async (formData, token) => {
   const res = await fetch(`${process.env.REACT_APP_BACKEND}/places/newplace`, {
     method: "POST",
     headers: {
-      "Authorization": token,
+      Authorization: token,
     },
-    body: formData
-  })
-  const json = await res.json()
+    body: formData,
+  });
+  const json = await res.json();
 
   if (!res.ok) {
-    throw new Error(json.message)
+    throw new Error(json.message);
   }
-  return json
-}
+  return json;
+};
 
 export const postVotes = async (url, vote, comment, token) => {
   try {
     const response = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'authorization': token,
+        "Content-Type": "application/json",
+        authorization: token,
       },
       body: JSON.stringify({ vote, comment }),
     });
 
     const jsonResponse = await response.json();
     if (jsonResponse.status === "ok") {
-      return { success: "true", message: "Cambio realizado con éxito", jsonResponse };
+      return {
+        success: "true",
+        message: "Cambio realizado con éxito",
+        jsonResponse,
+      };
     } else {
-      return { success: "false", message: `No se ha podido realizar la votación: ${jsonResponse.message}` };
-    }  } catch (error) {
-      console.error(error);
-      return { success: "false", message: "Error en la votacion", error };
+      return {
+        success: "false",
+        message: `No se ha podido realizar la votación: ${jsonResponse.message}`,
+      };
+    }
+  } catch (error) {
+    console.error(error);
+    return { success: "false", message: "Error en la votacion", error };
   }
+};
+
+export const deletePlaceServices = async ({ token, id }) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND}/places/delete/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json;
 };
