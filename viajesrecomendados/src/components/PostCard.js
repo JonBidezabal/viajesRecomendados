@@ -17,16 +17,24 @@ const PostCard = ({ post }) => {
             }
           </span>
           {
-            post.votes_qty &&
-            <span className="post-card-p">
-              {`(${post.votes_qty} ${post.votes_qty === 1 ? "Voto" : "Votos"})`}
-            </span>
+            (post.votes_qty > 0) ?
+              <span className="post-card-p">
+                {`(${post.votes_qty} ${post.votes_qty === 1 ? "Voto" : "Votos"})`}
+              </span> :
+              <span className="post-card-p">
+                {[... new Array(5)].map((star, index) => {
+                  return (<AiOutlineStar key={index} />)
+                })}
+              </span>
           }
           {
-            post.comments_qty &&
-            <p className="post-card-p">
-              {post.votes_average && post.comments_qty} {post.comments_qty === 1 ? "Comentario" : "Comentarios"}
-            </p>
+            (post.comments_qty > 0) ?
+              <p className="post-card-p">
+                {post.votes_average && post.comments_qty} {post.comments_qty === 1 ? "Comentario" : "Comentarios"}
+              </p> :
+              <p className="post-card-p">
+                Aún no hay comentarios
+              </p>
           }
         </div>
       </Link >
