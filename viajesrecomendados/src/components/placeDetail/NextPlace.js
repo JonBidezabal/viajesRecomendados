@@ -6,6 +6,7 @@ const NextPlace = ({ placeId }) => {
 
   const handleClick = () => {
     const parsedPlaceId = parseInt(placeId, 10);
+    placeId = placeId -1 
     navigate(`/places/${parsedPlaceId + 1}`);
   };
 

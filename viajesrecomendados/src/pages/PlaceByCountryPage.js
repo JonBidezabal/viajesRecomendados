@@ -29,20 +29,19 @@ const PlaceByCountry = () => {
         <ul className="place-by-map-container">
           {places.map((place) => (
             <li key={place.id} onClick={() => handleClick(place.id)}>
-              <h3>{`${place.title},  ${place.city},  ${place.country}`}</h3>
               <p>{place.shortDescription}</p>
-          
               {place.photos && (
                 <div className="place-by-gallery">
                   {place.photos.map((photo, index) => (
                     <img
-                      key={index}
-                      src={`${process.env.REACT_APP_BACKEND}/${photo}`}
-                      alt={`Experiencia en ${countryToUpper}`}
+                    key={index}
+                    src={`${process.env.REACT_APP_BACKEND}/${photo}`}
+                    alt={`Experiencia en ${countryToUpper}`}
                     />
-                  ))}
+                    ))}
                 </div>
               )}
+              <p>{`${place.title},  ${place.city},  ${place.country}`}</p>
             </li>
           ))}
         </ul>

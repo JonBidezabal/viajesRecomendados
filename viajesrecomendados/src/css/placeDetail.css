@@ -5,6 +5,8 @@
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
+  max-width: 100%; 
+  box-sizing: border-box; 
 }
 
 .place-detail-container {
@@ -17,19 +19,36 @@
 .comment-card ul {
   list-style-type: none;
 }
-
+/* photo */
 .photo-card img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  filter: grayscale(100%); 
+  transition: transform 0.3s ease, filter 0.3s ease; 
 }
+
+.photo-card img:before {
+  border-radius: 8px;
+  pointer-events: none;
+  transition: opacity 0.3s ease; /* Agrega una transición suave a la opacidad */
+}
+
+.photo-card:hover img {
+  transform: scale(1.1); 
+  filter: none; 
+}
+
+
 
 /* coment-card */
 .comment-card li,
 .votation-update-container {
   display: flex;
   flex-direction: column;
-  background-color: mediumspringgreen;
+  background-color: var(--light-green);
   color: rgb(32, 32, 32);
   border-radius: 2%;
   padding: 10px;
@@ -65,24 +84,35 @@
 
 /* info-card */
 div.info-card {
-  background-color: mediumspringgreen;
+  background-color: var(--light-green);
   height: min-content;
-  color: rgb(56, 56, 56);
+  color: rgb(17, 17, 17);
   font-size: 1.2rem;
-  margin-top: 1%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
 }
 
-.info-card h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
+.info-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--dark-green);
+  color: whitesmoke;
 }
 
+div.info-card p {
+  margin: 0.8rem;
+  
+}
+/* arrows */
 .next-place,
 .last-place {
   font-size: 50px;
-  color: rgb(255, 0, 0);
-
+  color: var(--dark-green);;
+  cursor: pointer;
 }
 
 .next-place {
@@ -96,7 +126,8 @@ div.info-card {
 .container-triangule {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin-top: 1.3rem;
 
 }
 
@@ -105,13 +136,25 @@ div.info-card {
   .place-detail-container {
     display: flex;
     flex-direction: row;
+    align-items: normal;
+    justify-content: center;
   }
 
   .comment-card li,
   .votation-update-container {
     border-radius: 8%;
+    width: 100%;
   }
 
-
+.container-comment-postvotes{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.next-place,
+.last-place {
+  font-size: 75px;
+ 
+}
 
 }

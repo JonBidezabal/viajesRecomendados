@@ -18,7 +18,7 @@
     width: 100%;
 }
 .edit-profile-h2-container h2 {
-    color: #4caf50;
+    color: var(--dark-green);;
     margin-bottom: 10px;
     
 }
@@ -38,7 +38,7 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #4caf50;
+    background-color: var(--dark-green);;
     color: #fff;
     border: none;
     border-radius: 4px;
