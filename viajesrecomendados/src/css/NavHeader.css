@@ -1,0 +1,38 @@
+ul#navheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 5px;
+}
+
+ul#navheader .navheader-search-by {
+  padding: 1rem;
+  flex: 1 auto;
+  text-align: center;
+}
+
+ul#navheader .navheader-search-by:nth-child(odd) {
+  background-color: var(--light-green);
+}
+
+ul#navheader .navheader-search-by:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+.navheader-select {
+  border: 1pt solid gainsboro;
+  padding: .5rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navheader-select select {
+  font-size: 1rem;
+  padding: .5rem;
+  appearance: none;
+  flex: 1;
+  background-color: var(--light-gray);
+}

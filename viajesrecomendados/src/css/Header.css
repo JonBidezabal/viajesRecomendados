@@ -1,194 +1,81 @@
-.navheadercountries {
-  display: flex;
-  flex-flow: column;
-  position: absolute;
+/* .header * {
+  border: 1pt solid red;
+} */
+
+.header {
+  display: grid;
+  grid-template-columns: 2fr auto;
+  grid-template-rows: 1fr auto;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 1px 1px 10px black;
 }
 
-.navheadercities {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-}
-
-.navheadercategories {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-}
-
-.navheadercountries,
-.navheadercities,
-.navheadercategories {
-  margin: 0 0.5em;
-}
-
-.navheader {
-  display: flex;
-  margin-right: 10rem;
-}
-
-.navheader-button {
-  all: unset;
-  margin: 0 0.5em;
-  padding: 7px 0;
-  border-bottom: 1pt solid var(--dark-green);
-}
-
-.navheader-li {
-  margin: 0 0.5em;
+.header ul li {
   list-style: none;
-  padding: 3px 0;
+  padding: .5rem 0;
 }
 
-.navheader-li:not(:last-child) {
-  border-bottom: 1pt solid gainsboro;
+.header ul ul li {
+  cursor: pointer;
 }
 
-.auth {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-}
-
-.navheader-a,
-.auth-link {
+.header a {
+  color: var(--dark-green);
   text-decoration: none;
 }
 
-.auth-li {
-  margin: 0 0.5em;
+
+.header-title h2 {
+  font-size: .8rem;
+  font-weight: 400;
 }
 
-header {
-  width: 100%;
-  padding: 1em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--light-green);
+.navheader-component {
+  position: relative;
 }
 
-.header-link {
-  text-decoration: none;
-  color: black;
-}
-
+/*Gestión del menu hamburguesa*/
 .header-button {
   all: unset;
-  /* display: none; */
-  color: var(--dark-green);
   cursor: pointer;
   font-size: 1.1rem;
+  width: 35px;
+  color: var(--dark-green);
 }
 
 .header-button:hover {
-  color: white;
-  font-size: 1.2rem;
+  width: 36px;
+  color: black;
 }
 
 .header-nav {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
+  display: none;
 }
 
-.header-ul {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
+.header-nav.show {
+  display: block;
 }
 
-.header-ul img.auth-avatar {
-  width: 35px;
-  height: 35px;
-  border-radius: 50% 50%;
+.header-section-menu .hide {
+  display: none;
 }
 
-.header-li {
-  list-style: none;
-  margin: 0 0.5em;
+.header-nav>ul>li:not(:last-child) {
+  border-bottom: 1pt solid gainsboro;
 }
 
-.header-svg {
-  width: 2em;
-  height: 2em;
-}
+@media (min-width:698px) {
+  .header-button {
+    display: none;
+  }
 
-.header-h2 {
-  color: lightslategray;
-  font-size: 10px;
-}
+  .header-nav {
+    display: block;
+  }
 
-.header-h1 {
-  font-size: 20px;
-}
+  .header * {
+    border: 1pt solid red;
+  }
 
-.header-button {
-  display: flex;
-}
-
-.header-nav {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 0vh;
-  opacity: 0;
-  overflow: hidden;
-  transition: all 0.5s ease;
-}
-
-.header-nav {
-  display: flex;
-  transition: all 0.5s ease;
-  height: 35vh;
-  opacity: 1;
-  background-color: var(--light-gray);
-}
-
-.header-ul {
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.header-li {
-  margin: 0.5em 0;
-}
-
-.auth {
-  flex-direction: column;
-}
-
-.navheader {
-  flex-direction: column;
-}
-
-.navheadercities,
-.navheadercountries,
-.navheadercategories {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 0vh;
-  opacity: 0;
-  overflow: hidden;
-  transition: all 0.5s ease;
-}
-
-.navheadercities,
-.navheadercountries,
-.navheadercategories {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 15vh;
-  opacity: 1;
-  position: inherit;
-  font-size: 13px;
-  overflow: auto;
 }
