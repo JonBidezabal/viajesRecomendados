@@ -1,10 +1,11 @@
 import { useAllPlaces, useByCategoryList } from "../../hooks";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { HeaderContext } from "../../context/HeaderContext";
-import { Link } from "react-router-dom";
-import "../../css/Header.css";
+import { useNavigate } from "react-router-dom";
+import "../../css/NavHeader.css";
+import { AiOutlineSearch } from "react-icons/ai";
 
-const NavHeader = ({ setMenu }) => {
+const NavHeader = ({ setShowMenu, showMenu }) => {
   const {
     showCategories,
     showCities,
@@ -14,6 +15,7 @@ const NavHeader = ({ setMenu }) => {
     setShowCountries,
   } = useContext(HeaderContext);
 
+  const navigate = useNavigate();
   const categoryList = useByCategoryList();
   const placeInfo = useAllPlaces();
 
@@ -31,104 +33,75 @@ const NavHeader = ({ setMenu }) => {
 
   const categoriesdata = categoryList.data;
 
-  return (
-    <div className="navheader">
-      <h4>Filtro de búsqueda</h4>
+  const handleFilter = (e) => {
+    e.preventDefault();
+    navigate(`/places/${e.target.name}/${e.target.value}`)
+  }
 
-      {/*Boton para desplegar lista de paises, cuando clicamos cerramos las listas de ciudades y categorías
- cuando clicamos en cualquier enlace de las listas setmenu pliega el menu */}
-      <section className="navheader-section">
-        <button
-          className="navheader-button"
-          onClick={() => {
+  return (
+    <>
+      <ul id="navheader">
+        <li className="navheader-search-by">
+          <span onClick={() => {
             setShowCountries(!showCountries);
             setShowCities(false);
             setShowCategories(false);
-          }}>
-          Países
-        </button>
+          }
+          }>Países</span>
+        </li>
+        {/*Boton para desplegar lista de ciudades, cuando clicamos cerramos las listas de categorías y paises */}
+        <li className="navheader-search-by">
+          <span
+            onClick={() => {
+              setShowCities(!showCities);
+              setShowCountries(false);
+              setShowCategories(false);
+            }}>
+            Ciudades
+          </span>
+        </li>
+        {/*Boton para desplegar lista de categorías, cuando clicamos cerramos las listas de ciudades y paises */}
+        <li className="navheader-search-by">
+          <span
+            className="navheader-button"
+            onClick={() => {
+              setShowCategories(!showCategories);
+              setShowCountries(false);
+              setShowCities(false);
+            }}>
+            Categorías
+          </span>
+        </li>
+      </ul >
+      <form className="navheader-select" onClick={handleFilter}>
+        <AiOutlineSearch className="navheader-search-icon" style={{ cursor: "pointer", fontSize: "1.5rem" }} />
         {showCountries && (
-          <ul className={"navheadercountries "}>
+          <select className={"navheader-countries "} name="country" onChange={() => { setShowMenu(!showMenu) }}>
             {countriesNotDuplicated?.map((place, i) => (
-              <li className="navheader-li" key={i}>
-                <Link
-                  className="navheader-a"
-                  to={`/places/country/${place}`}
-                  onClick={() => {
-                    setMenu(false);
-                    setShowCountries(false);
-                  }}>
-                  {place}
-                </Link>
-              </li>
+              <option className="navheader-li" key={i} value={place}>{place}</option>
             ))}
-          </ul>
-        )}
-      </section>
-
-      {/*Boton para desplegar lista de ciudades, cuando clicamos cerramos las listas de categorías y paises */}
-      <section className="navheader-section">
-        <button
-          className="navheader-button"
-          onClick={() => {
-            setShowCities(!showCities);
-            setShowCountries(false);
-            setShowCategories(false);
-          }}>
-          Ciudades
-        </button>
-
+          </select>)}
         {showCities && (
-          <ul className={"navheadercities"}>
+          <select className={"navheader-cities"} name="city">
             {citiesNotDuplicated?.map((place, i) => (
-              <li className="navheader-li" key={place}>
-                <Link
-                  className="navheader-a"
-                  to={`/places/city/${place}`}
-                  onClick={() => {
-                    setMenu(false);
-                    setShowCities(false);
-                  }}>
-                  {place[0].toUpperCase() + place.substring(1)}
-                </Link>
-              </li>
+              <option className="navheader-li" key={place} value={place}>
+                {place[0].toUpperCase() + place.substring(1)}
+              </option>
             ))}
-          </ul>
+          </select>
         )}
-      </section>
-
-      {/*Boton para desplegar lista de categorías, cuando clicamos cerramos las listas de ciudades y paises */}
-      <section className="navheader-section">
-        <button
-          className="navheader-button"
-          onClick={() => {
-            setShowCategories(!showCategories);
-            setShowCountries(false);
-            setShowCities(false);
-          }}>
-          Categorías
-        </button>
-
         {showCategories && (
-          <ul className={"navheadercategories"}>
+          <select className={"navheadercategories"} name="category">
             {categoriesdata?.map((category) => (
-              <li className="navheader-li" key={category.id}>
-                <Link
-                  className="navheader-a"
-                  to={`/places/category/${category.id}`}
-                  onClick={() => {
-                    setMenu(false);
-                    setShowCategories(false);
-                  }}>
-                  {category.category_name}
-                </Link>
-              </li>
+              <option className="navheader-li" key={category.id} value={category.id}>
+                {category.category_name}
+              </option>
             ))}
-          </ul>
+          </select>
         )}
-      </section>
-    </div>
-  );
+      </form>
+
+    </>);
 };
 
 export default NavHeader;
