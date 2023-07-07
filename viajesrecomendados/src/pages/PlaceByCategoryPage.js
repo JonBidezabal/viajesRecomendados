@@ -5,9 +5,11 @@ const PlaceByCategoryPage = () => {
   const { id } = useParams();
   const placesByCategory = useByCategory(id)
 
-  if (!placesByCategory) return <div>Cargando...</div>
-  if (placesByCategory.status !== "ok") return <div>Categoría no disponible</div>
+  if (!placesByCategory) return <div>Cargando..</div>
+  if (!placesByCategory.data) return <div>No existen lugares en esta categoría</div>
+
   return (
+
     <main>
       <h2>Categoría {placesByCategory.data[0].category_name}</h2>
       <PostsList posts={placesByCategory} />
