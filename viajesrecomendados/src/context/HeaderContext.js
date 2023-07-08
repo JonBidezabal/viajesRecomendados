@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const HeaderContext = createContext(null);
 export const HeaderContextProvider = ({ children }) => {
-  const [showCountries, setShowCountries] = useState(false);
+  const [showCountries, setShowCountries] = useState(true);
   const [showCities, setShowCities] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
 

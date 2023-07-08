@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 const Search = ({ showMenu, setShowMenu }) => {
   return (
-    <ul>
+    <ul className="search">
       <Link to={"/places/mostvoted"}>
-        <li onClick={() => { setShowMenu(!showMenu) }}>Mejores reseñas</li>
+        <li onClick={() => { setShowMenu(!showMenu) }}><span>Mejores reseñas</span></li>
       </Link>
       <Link to={"/places/allplaces"}>
-        <li onClick={() => { setShowMenu(!showMenu) }}>Por fecha</li>
+        <li onClick={() => { setShowMenu(!showMenu) }}><span>Más recientes</span></li>
       </Link>
     </ul>
   )

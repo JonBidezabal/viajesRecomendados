@@ -1,14 +1,15 @@
-/* .header * {
-  border: 1pt solid red;
-} */
-
 .header {
   display: grid;
   grid-template-columns: 2fr auto;
-  grid-template-rows: 1fr auto;
   padding: 1rem 1.5rem;
   margin-bottom: 1rem;
   box-shadow: 1px 1px 10px black;
+  align-items: center;
+  gap: 2rem;
+}
+
+#api-logo {
+  display: none;
 }
 
 .header ul li {
@@ -27,12 +28,19 @@
 
 
 .header-title h2 {
-  font-size: .8rem;
+  padding: .2rem 0;
+  font-size: .7rem;
   font-weight: 400;
 }
 
 .navheader-component {
   position: relative;
+}
+
+.header-nav>ul>#filter-places ul.search li span:hover {
+  color: black;
+  text-shadow: 1px 3px 10px black;
+
 }
 
 /*Gestión del menu hamburguesa*/
@@ -51,31 +59,90 @@
 
 .header-nav {
   display: none;
+  border-top: 1pt solid var(--dark-green);
+
 }
 
 .header-nav.show {
-  display: block;
-}
-
-.header-section-menu .hide {
-  display: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-nav>ul>li:not(:last-child) {
   border-bottom: 1pt solid gainsboro;
 }
 
-@media (min-width:698px) {
+@media (min-width:868px) {
   .header-button {
     display: none;
   }
 
-  .header-nav {
-    display: block;
+  .header {
+    display: flex;
   }
 
-  .header * {
-    border: 1pt solid red;
+  .header-nav,
+  .show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-top: none;
   }
+
+  .header-nav>ul.header-ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "filter user"
+      "filtersearch filtersearch";
+  }
+
+  .header ul>li {
+    padding: .2rem;
+  }
+
+  .header-nav>ul>li:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .header .header-nav>ul>li h4 {
+    display: none;
+  }
+
+  .header-nav>ul>#filter-places ul.search {
+    grid-area: filter;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header-nav>ul>#filter-search {
+    grid-area: filtersearch;
+  }
+
+  .header-nav>ul>#user-auth .auth-ul {
+    grid-area: user;
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+  }
+
+  .header-title h2 {
+    font-size: .8rem;
+  }
+
+  #api-logo {
+    display: block;
+    width: 200px;
+  }
+
+  .header-title h1,
+  .header-title h2 {
+    display: none;
+  }
+
 
 }

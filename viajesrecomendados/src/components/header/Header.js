@@ -14,6 +14,7 @@ const Header = () => {
     <header className="header">
       {/*Sección para el título del header */}
       <section className="header-title">
+        <Link to="/" className="header-link"><img src="../../api-logo.png" id="api-logo" /> </Link>
         <h1 className="header-h1">
           <Link to="/" className="header-link">
             Travel Experience
@@ -44,11 +45,11 @@ const Header = () => {
             <h4>Filtro de búsqueda</h4>
             <NavHeader className="navheader-component" showMenu={showMenu} setShowMenu={setShowMenu} />
           </li>
-          <li>
+          <li id="filter-places">
             <h4>Ordenar lugares</h4>
             <Search setShowMenu={setShowMenu} showMenu={showMenu} />
           </li>
-          <li className="header-li">
+          <li id="user-auth">
             <h4>Gestión de usuario</h4>
             <Auth setShowMenu={setShowMenu} showMenu={showMenu} />
           </li>

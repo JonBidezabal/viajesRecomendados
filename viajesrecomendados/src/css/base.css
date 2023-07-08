@@ -25,7 +25,8 @@
 }
 
 form button,
-form button {
+form button,
+.button {
   all: unset;
   background-color: var(--light-green);
   padding: .5rem;
@@ -36,8 +37,28 @@ form button {
   text-align: center;
 }
 
-form button:hover {
+form button:hover,
+.button:hover {
+  color: white;
   background-color: var(--dark-green);
   padding: .7rem;
-  color: white;
+}
+
+.button {
+  display: flex;
+  gap: .2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width:698px) {
+  .button {
+    width: 100px;
+    font-size: .8rem;
+  }
+
+  .button:hover {
+    color: white;
+    background-color: var(--dark-green);
+  }
 }

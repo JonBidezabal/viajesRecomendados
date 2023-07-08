@@ -3,38 +3,36 @@ import "../../css/Header.css";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { HeaderContext } from "../../context/HeaderContext";
+import { AiOutlineClose } from "react-icons/ai"
 
 const Auth = ({ showMenu, setShowMenu }) => {
   const { user, logout } = useContext(UserContext);
-  const { hidelist } = useContext(HeaderContext);
   return user ? (
     /*Enlaces con el login y el registro, si ya estás logueado sale una sección con tu nombre y la 
     posibilidad de modificar tu perfil */
-    <section className="auth-section">
-      Hola{" "}
-      <Link to={`/users/editprofile`}>
-        {user[0].name}
-      </Link>
-      <img
+    <ul className="auth-ul">
+      <li>Hola{" "}
+        <Link to={`/users/editprofile`} title="Gestionar mi perfil">
+          {user[0].name}
+        </Link></li>
+      <li><img
         className="auth-avatar"
         alt="avatar"
         src={`${process.env.REACT_APP_BACKEND}/${user[0].avatar}`}
         style={{ width: "40px" }}
-      />
-      <button onClick={() => { logout(); setShowMenu(!showMenu) }}>
-        <Link to={"/"}>
-          ❌
-        </Link>
-      </button>
-    </section>
+      /></li>
+      <li> <Link to={"/"}><button onClick={() => { logout(); setShowMenu(!showMenu) }} className="button">
+        <AiOutlineClose /> Cerrar Sesión
+      </button>  </Link></li>
+    </ul>
   ) : (
     <>
-      <ul className="auth">
+      <ul className="auth-ul" id="login-signup">
         <li className="auth-li">
           <Link
             to="/login"
             className="auth-link">
-            <span onClick={() => setShowMenu(!showMenu)}>INICIA SESIÓN</span>
+            <span onClick={() => setShowMenu(!showMenu)} className="button">INICIA SESIÓN</span>
           </Link>
         </li>
 
@@ -42,7 +40,7 @@ const Auth = ({ showMenu, setShowMenu }) => {
           <Link
             to="/signup"
             className="auth-link">
-            <span onClick={() => setShowMenu(!showMenu)}>REGÍSTRATE</span>
+            <span onClick={() => setShowMenu(!showMenu)} className="button">REGÍSTRATE</span>
           </Link>
         </li>
       </ul>
