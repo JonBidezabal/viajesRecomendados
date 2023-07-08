@@ -6,19 +6,21 @@ import CommentCard from "../components/placeDetail/CommentCard";
 import InfoCard from "../components/placeDetail/InfoCard";
 import PhotoCard from "../components/placeDetail/PhotoCard";
 import PostVotes from "../components/placeDetail/PostVotes";
-import '../css/placeDetail.css'
-
+import DeletePlace from "./DeletePlace";
+import Modal from "../components/Modal";
+import "../css/placeDetail.css";
 
 const PlaceDetail = () => {
   const { id } = useParams();
   const [votations, setVotations] = useState();
   const [status, setStatus] = useState("");
+  const [modal, setModal] = useState(false);
   const { user } = useContext(UserContext);
 
   const response = usePlaceDetail(id);
 
   useEffect(() => {
-    setVotations(null); 
+    setVotations(null);
   }, [id]);
 
   if (!response) {
@@ -31,15 +33,38 @@ const PlaceDetail = () => {
 
   return (
     <>
-    {response && response.data.generalInfo[0] && <InfoCard response={response}/>}
-  <div className="place-detail-container">
-    {response && response.data.photos && <PhotoCard response={response} id={id} />}
-    <div className="container-comment-postvotes">
-    {user && <PostVotes id={id} setVotations={setVotations} response={response} setStatus={setStatus} status={status} />}
-    {<CommentCard votations={votations} response={response} />}
-    </div>
-  </div>
-  </>
+      {response && response.data.generalInfo[0] && (
+        <InfoCard response={response} />
+      )}
+      <div className="place-detail-container">
+        {response && response.data.photos && (
+          <PhotoCard response={response} id={id} />
+        )}
+        <div className="container-comment-postvotes">
+          {user && (
+            <PostVotes
+              id={id}
+              setVotations={setVotations}
+              response={response}
+              setStatus={setStatus}
+              status={status}
+            />
+          )}
+          {<CommentCard votations={votations} response={response} />}
+        </div>
+        <div className="delete-place-container">
+          {user &&
+            user[0].id === response.data.generalInfo[0].posted_by_userID && (
+              <DeletePlace
+                id={response.data.generalInfo[0].place_id}
+                setModal={setModal}
+                modal={modal}
+              />
+            )}
+          {modal && <Modal />}
+        </div>
+      </div>
+    </>
   );
 };
 
