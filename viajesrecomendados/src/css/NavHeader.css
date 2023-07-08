@@ -8,17 +8,24 @@ ul#navheader {
 }
 
 ul#navheader .navheader-search-by {
-  padding: 1rem;
+  padding: .5rem;
   flex: 1 auto;
   text-align: center;
 }
 
 ul#navheader .navheader-search-by:nth-child(odd) {
-  background-color: var(--light-green);
+  background: linear-gradient(60deg,
+      var(--dark-green),
+      var(--light-green) 71%);
+
 }
 
 ul#navheader .navheader-search-by:nth-child(even) {
   background-color: var(--light-gray);
+}
+
+.navheader-search-by:hover {
+  font-weight: bold;
 }
 
 .navheader-select {
@@ -35,4 +42,14 @@ ul#navheader .navheader-search-by:nth-child(even) {
   appearance: none;
   flex: 1;
   background-color: var(--light-gray);
+}
+
+.navheader-search-by .active {
+  font-weight: bold;
+}
+
+@media (min-width:698px) {
+  ul#navheader {
+    min-width: 500px;
+  }
 }

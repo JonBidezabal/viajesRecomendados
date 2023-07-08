@@ -17,7 +17,7 @@ function Category({ category }) {
     case "Cultura":
       catImage = cultura;
       break;
-    case "Deportes":
+    case "Deporte":
       catImage = deportes;
       break;
     case "Relajación":

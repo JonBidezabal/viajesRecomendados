@@ -41,40 +41,40 @@ const NavHeader = ({ setShowMenu, showMenu }) => {
   return (
     <>
       <ul id="navheader">
-        <li className="navheader-search-by">
-          <span onClick={() => {
-            setShowCountries(!showCountries);
-            setShowCities(false);
-            setShowCategories(false);
-          }
-          }>Países</span>
+        <li className="navheader-search-by" onClick={() => {
+          setShowCountries(!showCountries);
+          setShowCities(false);
+          setShowCategories(false);
+        }
+        }>
+          <span>Países</span>
         </li>
         {/*Boton para desplegar lista de ciudades, cuando clicamos cerramos las listas de categorías y paises */}
-        <li className="navheader-search-by">
-          <span
-            onClick={() => {
-              setShowCities(!showCities);
-              setShowCountries(false);
-              setShowCategories(false);
-            }}>
+        <li className="navheader-search-by" onClick={() => {
+          setShowCities(!showCities);
+          setShowCountries(false);
+          setShowCategories(false);
+        }}>
+          <span>
             Ciudades
           </span>
         </li>
         {/*Boton para desplegar lista de categorías, cuando clicamos cerramos las listas de ciudades y paises */}
-        <li className="navheader-search-by">
+        <li className="navheader-search-by" onClick={() => {
+          setShowCategories(!showCategories);
+          setShowCountries(false);
+          setShowCities(false);
+        }}>
           <span
             className="navheader-button"
-            onClick={() => {
-              setShowCategories(!showCategories);
-              setShowCountries(false);
-              setShowCities(false);
-            }}>
+          >
             Categorías
           </span>
         </li>
       </ul >
-      <form className="navheader-select" onClick={handleFilter}>
-        <AiOutlineSearch className="navheader-search-icon" style={{ cursor: "pointer", fontSize: "1.5rem" }} />
+      {/* Formulario */}
+      <form className="navheader-select" onChange={handleFilter}>
+        <AiOutlineSearch className="navheader-search-icon" style={{ fontSize: "1.5rem" }} />
         {showCountries && (
           <select className={"navheader-countries "} name="country" onChange={() => { setShowMenu(!showMenu) }}>
             {countriesNotDuplicated?.map((place, i) => (
