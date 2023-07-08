@@ -1,0 +1,41 @@
+.modal-place {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--dark-green);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.message-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: var(--light-gray);
+  width: 30%;
+  height: 20%;
+  text-align: center;
+}
+.button-modal {
+  font-size: 1em;
+  width: 60px;
+  height: 40px;
+  all: unset;
+  background-color: var(--light-green);
+  padding: 0.5rem;
+  box-shadow: 1px 1px 1px var(--dark-green);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--dark-green);
+  text-align: center;
+}
+.button-modal:hover {
+  background-color: var(--dark-green);
+  padding: 0.7rem;
+  color: white;
+}
