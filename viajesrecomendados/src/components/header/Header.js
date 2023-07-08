@@ -4,17 +4,17 @@ import Auth from "./Auth";
 import Search from "./Search";
 import "../../css/Header.css";
 import "../../css/base.css";
-import { useContext, useRef, useState } from "react";
-import { HeaderContext } from "../../context/HeaderContext";
+import { useState } from "react";
 
 const Header = () => {
-  // const { hidelist } = useContext(HeaderContext);
   const [showMenu, setShowMenu] = useState(false);
   return (
     <header className="header">
       {/*Sección para el título del header */}
       <section className="header-title">
-        <Link to="/" className="header-link"><img src="../../api-logo.png" id="api-logo" /> </Link>
+        <Link to="/" className="header-link">
+          <img alt="api-logo" src="../../api-logo.png" id="api-logo" />{" "}
+        </Link>
         <h1 className="header-h1">
           <Link to="/" className="header-link">
             Travel Experience
@@ -39,11 +39,15 @@ const Header = () => {
 
       {/*Otra seccion del header con el botón que lleva la imagen svg(hamburguesa), cuando clicas despliega el menú con 
       los componentes Auth y NavHeader */}
-      <nav className={`header-nav ${showMenu ? "show" : ""}`} >
+      <nav className={`header-nav ${showMenu ? "show" : ""}`}>
         <ul className="header-ul">
           <li className="header-li" id="filter-search">
             <h4>Filtro de búsqueda</h4>
-            <NavHeader className="navheader-component" showMenu={showMenu} setShowMenu={setShowMenu} />
+            <NavHeader
+              className="navheader-component"
+              showMenu={showMenu}
+              setShowMenu={setShowMenu}
+            />
           </li>
           <li id="filter-places">
             <h4>Ordenar lugares</h4>
@@ -55,7 +59,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-    </header >
+    </header>
   );
 };
 
