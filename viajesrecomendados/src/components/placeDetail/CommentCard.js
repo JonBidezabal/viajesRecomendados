@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useUsersList } from "../../hooks";
 
 const CommentCard = ({ votations, response }) => {
   const info = useUsersList();
+  const [showComments, setShowComments] = useState(false);
+  const numComments = response.data.comments.length;
 
   const findUser = (id) => {
     return info.data.find((user) => user.id === id);
   };
-
   const votesRender = (votes) => {
     const maxVote = 5;
     const votesArray = [];
@@ -23,31 +24,41 @@ const CommentCard = ({ votations, response }) => {
   };
 
   return (
-    <div className="comment-card">
-      {response && info && (
-        <ul>
-          {response.data.comments.map((vote, index) => {
-            const user = findUser(vote.commented_by_userID);
-            return (
-              <li key={vote.commented_by_userID}>
-                <div className="elements-li-container">
-                  <img
-                    src={`${process.env.REACT_APP_BACKEND}/${user.avatar}`}
-                    alt="avatar"
-                  />
-                  <p>{user.name}</p>
-                  <p>{votesRender(vote.vote)}</p>
-                </div>
-                <div className="elements-li-container-sub">
-                  <p>{vote.comment}</p>
-                  <p>{new Date(vote.comment_date).toLocaleDateString()}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-      {votations && (
+    <section className="comments-votes" style={{ position: "relative" }}>
+      <div className="comment-card">
+        <h3 onClick={() => setShowComments(!showComments)}>
+          {" "}
+          Comentarios{" "}
+          <span>{`(${numComments} ${
+            numComments > 1 ? "comentarios" : "comentario"
+          })`}</span>
+        </h3>
+
+        {response && info && showComments && (
+          <ul>
+            {response.data.comments.map((vote, index) => {
+              const user = findUser(vote.commented_by_userID);
+              return (
+                <li className="li-commentcard" key={vote.commented_by_userID}>
+                  <div className="elements-li-container">
+                    <img
+                      src={`${process.env.REACT_APP_BACKEND}/${user.avatar}`}
+                      alt="avatar"
+                    />
+                    <p className="user-name">{user.name}</p>
+                    <p>{votesRender(vote.vote)}</p>
+                  </div>
+                  <div className="elements-li-container-sub">
+                    <p>{vote.comment}</p>
+                    <p>{new Date(vote.comment_date).toLocaleDateString()}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+      {/* {votations && (
         <div className="votation-update-container">
           <div className="elements-li-container">
             <img
@@ -64,8 +75,8 @@ const CommentCard = ({ votations, response }) => {
             </p>
           </div>
         </div>
-      )}
-    </div>
+      )} */}
+    </section>
   );
 };
 

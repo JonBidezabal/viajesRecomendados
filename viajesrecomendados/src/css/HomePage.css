@@ -15,9 +15,7 @@
 }
 
 @media (min-width: 698px) {
-
   .home-page section {
-    margin: 0 1.5rem;
     text-align: left;
   }
 }

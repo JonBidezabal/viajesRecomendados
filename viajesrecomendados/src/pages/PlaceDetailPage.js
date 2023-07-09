@@ -9,6 +9,8 @@ import PostVotes from "../components/placeDetail/PostVotes";
 import DeletePlace from "./DeletePlace";
 import Modal from "../components/Modal";
 import "../css/placeDetail.css";
+import "../css/base.css";
+import CategoryCard from "../components/placeDetail/CategoryCard";
 
 const PlaceDetail = () => {
   const { id } = useParams();
@@ -32,7 +34,7 @@ const PlaceDetail = () => {
   }
 
   return (
-    <>
+    <main className="main-place-detail-page">
       {response && response.data.generalInfo[0] && (
         <InfoCard response={response} />
       )}
@@ -40,6 +42,12 @@ const PlaceDetail = () => {
         {response && response.data.photos && (
           <PhotoCard response={response} id={id} />
         )}
+        <section className="category-info-card">
+          Encuentra experiencias como esta:
+          {response && response.data.categories && (
+            <CategoryCard response={response} />
+          )}
+        </section>
         <div className="container-comment-postvotes">
           {user && (
             <PostVotes
@@ -64,7 +72,7 @@ const PlaceDetail = () => {
           {modal && <Modal />}
         </div>
       </div>
-    </>
+    </main>
   );
 };
 

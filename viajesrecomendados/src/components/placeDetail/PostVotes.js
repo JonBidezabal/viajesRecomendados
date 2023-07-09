@@ -32,15 +32,13 @@ const PostVotes = ({ id, setVotations, response, status, setStatus }) => {
       setStatus(jsonResponse.success);
       setMessage(jsonResponse.message);
       if (jsonResponse.success === "true") {
-       
         setVotations({
-              vote: vote,
-              comment: comment,
-              comment_date: new Date(),
-              name: user[0].name,
-              avatar: user[0].avatar
-            })
-   
+          vote: vote,
+          comment: comment,
+          comment_date: new Date(),
+          name: user[0].name,
+          avatar: user[0].avatar,
+        });
       }
     } catch (error) {
       console.error(error.message);
@@ -49,40 +47,34 @@ const PostVotes = ({ id, setVotations, response, status, setStatus }) => {
 
   return (
     <div className="post-votes-container">
-      { (
+      {
         <div>
           <h3>Escribe un reseña</h3>
           <form onSubmit={handleSubmit}>
-             
             <div className="stars-container">
               <span
                 className={1 <= vote ? "votation" : "emoji"}
-                onClick={() => handleVote(1)}
-              >
+                onClick={() => handleVote(1)}>
                 ★
               </span>
               <span
                 className={2 <= vote ? "votation" : "emoji"}
-                onClick={() => handleVote(2)}
-              >
+                onClick={() => handleVote(2)}>
                 ★
               </span>
               <span
                 className={3 <= vote ? "votation" : "emoji"}
-                onClick={() => handleVote(3)}
-              >
+                onClick={() => handleVote(3)}>
                 ★
               </span>
               <span
                 className={4 <= vote ? "votation" : "emoji"}
-                onClick={() => handleVote(4)}
-              >
+                onClick={() => handleVote(4)}>
                 ★
               </span>
               <span
                 className={5 <= vote ? "votation" : "emoji"}
-                onClick={() => handleVote(5)}
-              >
+                onClick={() => handleVote(5)}>
                 ★
               </span>
             </div>
@@ -102,7 +94,7 @@ const PostVotes = ({ id, setVotations, response, status, setStatus }) => {
           </form>
           {message && <p className={status}>{message}</p>}
         </div>
-      )}
+      }
     </div>
   );
 };

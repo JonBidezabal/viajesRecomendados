@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { deletePlaceServices } from "../services";
-import { useNavigate } from "react-router-dom";
 
 const DeletePlace = ({ id, setModal }) => {
   const { user, token } = useContext(UserContext);
@@ -19,6 +18,7 @@ const DeletePlace = ({ id, setModal }) => {
   return (
     user && (
       <button
+        className="button"
         onClick={() => {
           setModal(true);
           deletePost();
