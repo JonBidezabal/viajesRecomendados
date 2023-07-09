@@ -1,16 +1,20 @@
 .place-by-container {
   border-radius: 8px;
   margin-bottom: 16px;
-  max-width: 100%; 
+  max-width: 100%;
   box-sizing: border-box;
 }
 
 .place-by-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   padding: 20px;
   text-align: center;
-  background-color: var(--dark-green);
+  background: linear-gradient(
+    217deg,
+    var(--light-green),
+    var(--dark-green) 71%
+  );
   color: whitesmoke;
   margin-bottom: 1rem;
 }
@@ -26,7 +30,6 @@
   border-radius: 2%;
   padding: 10px;
   cursor: pointer;
-  
 }
 
 .place-by-map-container li p {
@@ -45,40 +48,25 @@
   border-radius: 8px;
   margin-right: 8px;
 }
-  
-  @media only screen and (min-width: 768px) {
-    
-      .place-by-map-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-gap: 20px;
-        list-style: none;
-        padding: 0;
-      }
-      
-      .place-by-map-container li {
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
 
-      .place-by-title {
-        font-size: 28px;
-      }
-      
-    
-    }
-    
-    
-    
-    
-    
-    
-    
-  
- 
-  
-  
-  
+@media only screen and (min-width: 768px) {
+  .place-by-map-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .place-by-map-container li {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .place-by-title {
+    font-size: 28px;
+  }
+}

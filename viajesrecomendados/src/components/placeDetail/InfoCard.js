@@ -1,16 +1,27 @@
-import React from "react";
-import CategoryCard from "./CategoryCard";
+import React, { useState } from "react";
 
 const InfoCard = ({ response }) => {
- 
+  const [largeDescription, setLargeDescription] = useState(false);
   return (
     <>
-      <h3 className="info-title">{response.data.generalInfo[0].title}</h3>
-    <div className="info-card">
+      <div className="info-card">
+        <h3 className="info-title">{response.data.generalInfo[0].title}</h3>
         <p>{response.data.generalInfo[0].shortDescription}</p>
-        <p>{response.data.generalInfo[0].city}, {response.data.generalInfo[0].country}</p>
-        {response && response.data.categories && <CategoryCard response={response} />}
-    </div>
+        {response.data.generalInfo[0].largeDescription && (
+          <p
+            id="infocard-masinfo"
+            onClick={() => setLargeDescription(!largeDescription)}>
+            Más información...
+          </p>
+        )}
+        {largeDescription && (
+          <p>{response.data.generalInfo[0].largeDescription}</p>
+        )}
+        <span>¿Dónde?</span>{" "}
+        <p>
+          <b>{`En ${response.data.generalInfo[0].city}, ${response.data.generalInfo[0].country}`}</b>
+        </p>
+      </div>
     </>
   );
 };
