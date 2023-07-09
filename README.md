@@ -40,10 +40,16 @@ Esto creará una carpeta llamada www, en la que se crearán los archivos necesar
 
 ## LA HOMEPAGE
 VERSIÓN DESKTOP
-FOTO HOME
+![HomePage-desktop](https://github.com/JonBidezabal/viajesRecomendados/assets/124776420/e2ddabb1-6f5a-48a2-bbc9-d4ebe34f6059)
+<br>
+
+
+![HomePage-mobile](https://github.com/JonBidezabal/viajesRecomendados/assets/124776420/90979f29-0a1e-4c47-ad09-bfc481ae42ed)
 
 VERSIÓN MÓVIL
-FOTO HOME
+<br>
+![HomePage-menu-mobile](https://github.com/JonBidezabal/viajesRecomendados/assets/124776420/9c4366d8-ab00-433f-bb54-57e296fbac30)
+
 
 ## ESTRUCTURA DEL REPOSITORIO
 
