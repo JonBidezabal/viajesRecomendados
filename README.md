@@ -17,31 +17,22 @@ Para ejecutar el proyecto necesitas:
  </p>
 
 ## INSTALACIÓN
-En el directorio del proyecto descárgate el repositorio
-<br>
- `` git clone. .........
- ``
- <br>
-  <br>
-Abre el terminal en tu editor y 
-<br>
+ 
+- Abre el terminal en tu editor<br>
 `` cd tu-repositorio
 `` 
-<br>
+- Escribe<br>
  `` npm install
 ``
-<br>
-<br>
-Ejecuta el comando:<br>
+- Ejecuta el comando:<br>
 ``npm start
 ``
-- Ejecuta la aplicación en el modo de desarrollo.<br>
+- Ejecuta la aplicación en el modo de desarrollo:<br>
  ``Abre http://localhost:3000 para verla en tu navegador.
  ``
 - También puedes ver cualquier error en la consola.<br>
 ``npm test
 ``
-
 - Para crear una instancia estática de este proyecto, ejecuta la siguiente tarea:.<br>
 ``npm run build
 ``
