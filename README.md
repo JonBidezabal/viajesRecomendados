@@ -1,5 +1,3 @@
-
-
 ## VIAJES RECOMENDADOS
 
 Este es un portal online donde los usuarios pueden escoger viajes, hoteles y experiencias gracias a las opiniones de quienes ya han utilizado y disfrutado de esos viajes y experiencias. Existe un sistema de votación y comentarios de los que se nutre la página web. En la actualidad, los viajeros pueden utilizar este portal para planear cada detalle de sus viajes, desde dónde se van a hospedar hasta las atracciones que van a visitar.
@@ -50,10 +48,16 @@ Ejecuta el comando:<br>
 Esto creará una carpeta llamada www, en la que se crearán los archivos necesarios.
 
 ## LA HOMEPAGE
+VERSIÓN DESKTOP
 FOTO HOME
+
+VERSIÓN MÓVIL
+FOTO HOME
+
 ## ESTRUCTURA DEL REPOSITORIO
 
-![repo](https://github.com/mercedesiniguez/mercedesiniguez/assets/124776420/5ce96355-cab5-42af-8121-7783b8ac2f0b)
+![repositorio_](https://github.com/JonBidezabal/viajesRecomendados/assets/124776420/8a01b5bd-38ba-4bea-a952-291655f8d0aa)
+
 
  ## HERRAMIENTAS Y LENGUAJES UTILIZADOS
  <p>
@@ -62,11 +66,13 @@ FOTO HOME
 <img align="left" alt="MySQL" width="26px" src="https://camo.githubusercontent.com/2582ec2237a3a1fbd34e9b57332b72be27a7facb32abe7c2335e5f86e5f457a8/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6d7973716c2f6d7973716c2d6f726967696e616c2e737667" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" style="max-width: 100%;">
 <img align="left" alt="Node.js" width="26px" src="https://camo.githubusercontent.com/900baefb89e187c8b32cdbb3b440d1502fe8f30a1a335cc5dc5868af0142f8b1/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6e6f64656a732f6e6f64656a732d6f726967696e616c2e737667" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" style="max-width: 100%;">
 <img align="left" alt="GitHub" width="26px" src="https://midu.dev/images/tags/github.png" style="max-width: 100%;">
-<img align="left" alt="GitHub" width="26px" src="https://midu.dev/images/tags/git.png" style="max-width: 100%;">
-<img align="left" alt="GitHub" width="26px" src="https://midu.dev/images/tags/css.png" style="max-width: 100%;">
+<img align="left" alt="Git" width="26px" src="https://midu.dev/images/tags/git.png" style="max-width: 100%;">
+<img align="left" alt="Css" width="26px" src="https://midu.dev/images/tags/css.png" style="max-width: 100%;">
 <link align="left width="26px" src="https://github.com/mercedesiniguez/mercedesiniguez/assets/124776420/07a4354d-cd67-434a-aa33-92bdb6241f83"
 style="max-width: 100%;">
-<img align="left" alt="GitHub" width="26px" src="https://midu.dev/images/tags/react.png" style="max-width: 100%;"></p><BR>
+<img align="left" alt="React" width="26px" src="https://midu.dev/images/tags/react.png" style="max-width: 100%;">
+  <img align="left" alt="Html5" width="29px" src="https://github.com/shsarv/TravelYaari/raw/master/resources/html.jpg" style="max-width: 100%;">
+ </p><BR>
 
 ## AUTORES
   KAROL BRACHO, [bykarol](https://www.linkedin.com/in/karolbrachoyanez/)
